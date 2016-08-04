@@ -21,8 +21,15 @@
           <div class="panel-body">
             End Point: {{x.end_point}} <br>
             Method Request: {{x.http_method}} <br>
-            Params: {{x.params}} <br>
-            Examples: {{x.examples}} <br>
+            Params:
+            <div class="result">
+              <json-formatter json=x.params open="1"></json-formatter>
+            </div>
+
+            Examples:
+            <div class="result">
+              <json-formatter json=x.examples open="1"></json-formatter>
+            </div>
           </div>
         </div>
       </div>
