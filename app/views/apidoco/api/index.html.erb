@@ -1,3 +1,32 @@
-Index
+<div ng-app="apiDocoApp" ng-controller="v1_json" ng-init="json_item =<%= @v1 %>">
+  <h3 class="text-center text-info">API DOCO </h3>
+  <div class="alert alert-success">
+    <strong>BASE URL</strong> {{ json_item.base_url }}
+  </div>
 
-<%= @v1 %>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="btn-group-vertical">
+        <button type="button" class="btn btn-primary" ng-repeat="x in json_item.apis">
+          {{x.api_name}}
+        </button>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="panel-group" ng-repeat="x in json_item.apis">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            {{x.api_name}}
+          </div>
+          <div class="panel-body">
+            End Point: {{x.end_point}} <br>
+            Method Request: {{x.http_method}} <br>
+            Params: {{x.params}} <br>
+            Examples: {{x.examples}} <br>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
