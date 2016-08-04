@@ -1,3 +1,30 @@
-Index
+<div ng-app="apiDocoApp" ng-controller="v1_json" ng-init="json_item =<%= @v1 %>">
+  <h3 class="text-center text-info">API DOCO </h3>
+  <div class="alert alert-success">
+    <strong>BASE URL</strong> {{ json_item.base_url }}
+  </div>
 
-<%= @v1 %>
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="panel-group" ng-repeat="x in json_item.apis">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              {{x.api_name}}
+              <a data-toggle="collapse" href="#collapse{{$index}}" class="pull-right" aria-expanded="true">+/-</a>
+            </h4>
+          </div>
+          <div id="collapse{{$index}}" class="panel-collapse collapse" aria-expanded="true">
+            <ul class="list-group">
+              <li class="list-group-item">End Point: {{x.end_point}}</li>
+              <li class="list-group-item">Method Request: {{x.http_method}}</li>
+              <li class="list-group-item">Params: <pre pretty-json="x.params"  /></li>
+              <li class="list-group-item">Examples: <pre pretty-json="x.examples"  /></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

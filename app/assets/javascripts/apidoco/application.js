@@ -11,4 +11,5 @@
 // about supported directives.
 //
 //= require angular
+//= require jquery.min
 //= require_tree .
