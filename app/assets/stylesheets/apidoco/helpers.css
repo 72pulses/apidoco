@@ -1,0 +1,8 @@
+/* All the helper/reusable classes should be in here */
+.pointer {
+  cursor: pointer;
+}
+
+.mt-10 {
+  margin-top: 10px !important;
+}
