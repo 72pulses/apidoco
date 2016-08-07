@@ -1,8 +1,5 @@
 # Apidoco
-Short description and motivation.
-
-## Usage
-How to use my plugin.
+Easy documentation of REST APIs
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -16,9 +13,10 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
-```bash
-$ gem install apidoco
+Add this line to your routes:
+
+```ruby
+mount Apidoco::Engine, at: "/docs"
 ```
 
 ## Contributing
@@ -27,7 +25,10 @@ Contribution directions go here.
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
+### Sample API documentation format
+
 ```
+// docs/api/v1.json
 {
   "base_url": "http://example.com/apis/v1",
   "apis": [
