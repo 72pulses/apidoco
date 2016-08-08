@@ -9,8 +9,8 @@ module Apidoco
       documentation_directories.map { |dir| Documentation.new(dir) }
     end
 
-    def documentation(name)
-      documentations.find { |doc| doc.name.eql?(name) }
+    def documentation(version)
+      documentations.find { |doc| doc.version.eql?(version) }
     end
 
     private
