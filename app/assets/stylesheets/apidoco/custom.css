@@ -1,0 +1,15 @@
+.api_details {
+  border: 5px solid beige;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: seashell;
+  margin-bottom: 20px;
+}
+
+#page-content-wrapper {
+  background-color: slategray
+}
+
+.text_wheat {
+  color: wheat;
+}
