@@ -2,7 +2,7 @@ require "angularjs-rails"
 
 require "apidoco/engine"
 require "apidoco/version_parser"
+require "apidoco/version_documentation"
+require "apidoco/resource_documentation"
 
-module Apidoco
-  # Your code goes here...
-end
+module Apidoco; end

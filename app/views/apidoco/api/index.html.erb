@@ -1,4 +1,4 @@
-<div ng-controller="DocumentationController" ng-init="json_item =<%= @v1 %>">
+<div ng-controller="DocumentationController" ng-init="json_item =<%= @v1.to_json %>">
   <!-- Sidebar -->
   <%= render partial: "side_bar" %>
   <!-- Page Content -->
