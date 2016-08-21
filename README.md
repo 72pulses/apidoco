@@ -28,37 +28,90 @@ The gem is available as open source under the terms of the [MIT License](http://
 ### Sample API documentation format
 
 ```
-// docs/api/v1.json
+// docs/api/v1/posts/create.json
 {
-  "base_url": "http://example.com/apis/v1",
-  "apis": [
-    {
-      "name": "Create Post",
-      "end_point": "/posts",
-      "http_method": "POST",
-      "params": [{
-        "key": "post['name']",
-        "required": true
-      }, {
-        "key": "post['content']",
-        "required": false
-      }],
-      "examples": [{
-        "request": {
-          "post": {
-            "name": "I was scared",
-            "content": "I am serious, I was really scared."
-          }
-        },
-        "response": {
-          "success": true,
-          "message": "Post was successfully created",
-          "post": {
-            "id": 101
-          }
-        }
-      }]
+  "name": "Create Post",
+  "end_point": "/posts",
+  "http_method": "POST",
+  "params": [{
+    "key": "post['name']",
+    "required": true
+  }, {
+    "key": "post['content']",
+    "required": false
+  }],
+  "examples": [{
+    "request": {
+      "post": {
+        "name": "I was scared",
+        "content": "I am serious, I was really scared."
+      }
+    },
+    "response": {
+      "success": true,
+      "message": "Post was successfully created",
+      "post": {
+        "id": 101
+      }
     }
-  ]
+  }]
+}
+
+// docs/api/v1/posts/edit.json
+{
+  "name": "Edit Post",
+  "end_point": "/posts",
+  "http_method": "POST",
+  "params": [{
+    "key": "post['name']",
+    "required": true
+  }, {
+    "key": "post['content']",
+    "required": false
+  }],
+  "examples": [{
+    "request": {
+      "post": {
+        "name": "I was scared",
+        "content": "I am serious, I was really scared."
+      }
+    },
+    "response": {
+      "success": true,
+      "message": "Post was successfully created",
+      "post": {
+        "id": 101
+      }
+    }
+  }]
+}
+
+//docs/api/v1/posts/delete.json
+{
+  "name": "Delete Post",
+  "end_point": "/posts",
+  "http_method": "POST",
+  "params": [{
+    "key": "post['name']",
+    "required": true
+  }, {
+    "key": "post['content']",
+    "required": false
+  }],
+  "examples": [{
+    "request": {
+      "post": {
+        "name": "I was scared",
+        "content": "I am serious, I was really scared."
+      }
+    },
+    "response": {
+      "success": true,
+      "message": "Post was successfully created",
+      "post": {
+        "id": 101
+      }
+    }
+  }]
 }
 ```

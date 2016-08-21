@@ -1,12 +1,14 @@
 module Apidoco
   # Parses the documentation versions, keeps track of all the documented api versions
   class VersionParser
+    attr_accessor :base_path
+
     def initialize
       self.base_path = Pathname('docs').join('api')
     end
 
     def documentations
-      documentation_directories.map { |dir| Documentation.new(dir) }
+      documentation_directories.map { |dir| VersionDocumentation.new(dir) }
     end
 
     def documentation(version)
