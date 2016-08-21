@@ -5,8 +5,10 @@
         API DOCO
       </a>
     </li>
-
-    <li ng-repeat="x in json_item.apis">
+    <li>
+      <input type="text" placeholder="Search.." class="form-control input-sm" ng-model="searchKeyword" />
+    </li>
+    <li ng-repeat="x in json_item.apis | filter: searchKeyword">
       <a href="#api_{{$index}}" du-smooth-scroll du-scrollspy>{{x.name}}</a>
     </li>
   </ul>

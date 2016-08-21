@@ -19,7 +19,7 @@
             </div>
           </div><br />
 
-          <div class="row api_details" ng-repeat="x in json_item.apis" id="api_{{$index}}">
+          <div class="row api_details" ng-repeat="x in json_item.apis | filter: searchKeyword" id="api_{{$index}}">
             <div class="col-lg-12">
               <h4>{{x.name}}</h4>
               <div class="row mt-10">
