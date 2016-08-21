@@ -1,4 +1,3 @@
-<div ng-app="apiDocoApp" ng-controller="v1_json_sidebar" ng-init="json =<%= @v1 %>">
 <div id="sidebar-wrapper">
   <ul class="sidebar-nav">
     <li class="sidebar-brand">
@@ -7,8 +6,8 @@
       </a>
     </li>
 
-    <li ng-repeat="x in json.apis" >
-      <a href="#api_{{$index}}">{{x.name}}</a>
+    <li ng-repeat="x in json_item.apis">
+      <a href="#api_{{$index}}" du-smooth-scroll du-scrollspy>{{x.name}}</a>
     </li>
   </ul>
 </div>
