@@ -1,7 +1,7 @@
-/** 
+/**
 * @license ng-prettyjson - v0.2.0
 * (c) 2013 Julien VALERY https://github.com/darul75/ng-prettyjson
-* License: MIT 
+* License: MIT
 **/
 !function(a){"use strict";a.module("ngPrettyJson",[]).directive("prettyJson",["$compile","$templateCache","ngPrettyJsonFunctions",function(b,c,d){var e=a.isDefined;return{restrict:"AE",scope:{json:"=",prettyJson:"=",onEdit:"&"},template:"<div></div>",replace:!0,link:function(f,g,h){var i={},j=null;f.id=h.id||"prettyjson",f.editActivated=!1,f.edition=h.edition,f.aceEditor=void 0!==window.ace;
 // compile template

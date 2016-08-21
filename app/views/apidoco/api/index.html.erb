@@ -1,56 +1,63 @@
-<div ng-app="apiDocoApp" ng-controller="v1_json" ng-init="json_item =<%= @v1 %>">
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">
-          Docs / API / V1
-        </a>
-      </div>
-    </div>
-  </nav>
-  <h3 class="text-center text-info">API DOCO </h3>
-  <div class="alert alert-success">
-    <strong>BASE URL</strong> {{ json_item.base_url }}
-  </div>
-
-  <div class="row">
-    <div class="col-md-12">
-
-      <div class="panel-group" ng-repeat="x in json_item.apis">
-        <div class="panel panel-primary">
-          <div class="panel-heading pointer" data-toggle="collapse" href="#collapse{{$index}}">
-            <h4 class="panel-title">
-              {{x.name}}
-            </h4>
-          </div>
-          <div id="collapse{{$index}}" class="panel-collapse collapse" aria-expanded="true">
-            <div class="row mt-10">
-              <div class="col-md-2 text-right">End Point:</div>
-              <div class="col-md-10"><code>{{x.end_point}}</code></div>
+<div ng-controller="DocumentationController" ng-init="json_item =<%= @v1 %>">
+  <!-- Sidebar -->
+  <%= render partial: "side_bar" %>
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-2">
+              <a href="#menu-toggle" class="btn btn-default glyphicon glyphicon-align-justify" id="menu-toggle"></a>
             </div>
-            <div class="row mt-10">
-              <div class="col-md-2 text-right">HTTP Method:</div>
-              <div class="col-md-10">{{x.http_method}}</div>
+          </div><br />
+
+          <div class="row">
+            <div class="col-lg-12 text_wheat">
+              <strong>BASE URL</strong>
+              {{ json_item.base_url }}
             </div>
-            <div class="row mt-10">
-              <div class="col-md-2 text-right">Params:</div>
-              <div class="col-md-10">
-                <p ng-repeat="param in x.params">
-                  <code>{{param.key}} <span ng-if="param.required"> #{{param.required ? 'required' : 'optional'}}</span></code>
-                </p>
+          </div><br />
+
+          <div class="row api_details" ng-repeat="x in json_item.apis" id="api_{{$index}}">
+            <div class="col-lg-12">
+              <h4>{{x.name}}</h4>
+              <div class="row mt-10">
+                <div class="col-lg-2 text-right">End Point:</div>
+                <div class="col-lg-10">
+                  <code>{{x.end_point}}</code>
+                </div>
               </div>
-            </div>
-            <div class="row mt-10">
-              <div class="col-md-2 text-right">Examples:</div>
-              <div class="col-md-10">
-                <div ng-repeat="example in x.examples">
-                  <div>
-                    <p class="text-center">Request</p>
-                    <pre pretty-json="example.request" />
-                  </div>
-                  <div>
-                    <p class="text-center">Response</p>
-                    <pre pretty-json="example.response" />
+
+              <div class="row mt-10">
+                <div class="col-lg-2 text-right">HTTP Method:</div>
+                <div class="col-lg-10">{{x.http_method}}</div>
+              </div>
+
+              <div class="row mt-10">
+                <div class="col-lg-2 text-right">Params:</div>
+                <div class="col-lg-10">
+                  <p ng-repeat="param in x.params">
+                    <code>{{param.key}}
+                      <span ng-if="param.required">
+                        #{{param.required ? 'required' : 'optional'}}</span>
+                    </code>
+                  </p>
+                </div>
+              </div>
+
+              <div class="row mt-10">
+                <div class="col-lg-2 text-right">Examples:</div>
+                <div class="col-lg-10">
+                  <div ng-repeat="example in x.examples">
+                    <div>
+                      <p class="text-center">Request</p>
+                      <pre pretty-json="example.request" />
+                    </div>
+                    <div>
+                      <p class="text-center">Response</p>
+                      <pre pretty-json="example.response" />
+                    </div>
                   </div>
                 </div>
               </div>

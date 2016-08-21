@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="apiDocoApp">
   <head>
     <title>Apidoco</title>
     <%= stylesheet_link_tag    "apidoco/application", media: "all" %>
@@ -7,7 +7,7 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div id="api-doco-main-container" class="container">
+    <div id="wrapper">
       <%= yield %>
     </div>
   </body>
