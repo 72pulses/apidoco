@@ -27,8 +27,8 @@ To create a Api documentation file for an action:
 rails g apidoco path_to_file/file_name
 ```
 For Eg:
-ruby
-```
+
+```ruby
 rails g apidoco api/v1/posts/new
 ```
 will create a file under docs/api/v1/posts/new.json with a sample content.
