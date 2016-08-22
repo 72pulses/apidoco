@@ -27,29 +27,19 @@ class ApidocoGenerator < Rails::Generators::Base
   def default_end_points_with_method(action)
     end_points_with_method = {
       index: {
-        endpoint: '/',
-        method: 'GET',
-        collection: true
+        endpoint: '.json', method: 'GET', collection: true
       },
       show: {
-        endpoint: '/:id',
-        method: 'GET',
-        collection: false
+        endpoint: '/:id.json', method: 'GET', collection: false
       },
       create: {
-        endpoint: '/',
-        method: 'POST',
-        collection: true
+        endpoint: '.json', method: 'POST', collection: true
       },
       update: {
-        endpoint: '/:id',
-        method: 'PUT|PATCH',
-        collection: false
+        endpoint: '/:id.json', method: 'PUT|PATCH', collection: false
       },
       destroy: {
-        endpoint: '/:id',
-        method: 'DELETE',
-        collection: false
+        endpoint: '/:id.json', method: 'DELETE', collection: false
       }
     }
     end_points_with_method[action] || {}
@@ -66,7 +56,7 @@ class ApidocoGenerator < Rails::Generators::Base
   end
 
   def file_name(resource, action)
-    "#{resource}/#{action.to_s}.json"
+    "#{resource}/#{action}.json"
   end
 
   def resource_name(resource)
@@ -79,7 +69,7 @@ class ApidocoGenerator < Rails::Generators::Base
     <<-FILE
       {
         "name": "#{name}",
-        "end_point": "#{endpoint_with_method[:endpoint]}",
+        "end_point": "#{resource}#{endpoint_with_method[:endpoint]}",
         "http_method": "#{endpoint_with_method[:method]}",
         "params": [],
         "examples": [{
