@@ -44,10 +44,11 @@ crud actions, you need to specify the actions for which the files need to be gen
 For Eg:
 ruby
 ```
-rails g apidoco api/v1/posts download
+rails g apidoco api/v1/posts download upload
 ```
-will create the following file with sample content
+will create the following files with sample content
 - docs/api/v1/posts/download.json
+- docs/api/v1/posts/upload.json
 
 ## Contributing
 Contribution directions go here.
