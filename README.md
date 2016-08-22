@@ -24,14 +24,30 @@ mount Apidoco::Engine, at: "/docs"
 To create a Api documentation file for an action:
 
 ```ruby
-rails g apidoco path_to_file/file_name
+rails g apidoco resource
 ```
 For Eg:
 ruby
 ```
-rails g apidoco api/v1/posts/new
+rails g apidoco api/v1/posts
 ```
-will create a file under docs/api/v1/posts/new.json with a sample content.
+will create the following files by default with sample content
+- docs/api/v1/posts/show.json
+- docs/api/v1/posts/create.json
+- docs/api/v1/posts/update.json
+- docs/api/v1/posts/destroy.json
+- docs/api/v1/posts.json
+
+If you need to create Api documention file for actions other than default
+crud actions, you need to specify the actions for which the files need to be generated
+
+For Eg:
+ruby
+```
+rails g apidoco api/v1/posts download
+```
+will create the following file with sample content
+- docs/api/v1/posts/download.json
 
 ## Contributing
 Contribution directions go here.
