@@ -63,7 +63,7 @@ class ApidocoGenerator < Rails::Generators::Base
   end
 
   def file_content(resource, action)
-    endpoint_with_method = default_end_points_with_method(action)
+    endpoint_with_method = default_end_points_with_method(action.intern)
     name = api_name(resource_name(resource), action)
     <<-FILE
       {
