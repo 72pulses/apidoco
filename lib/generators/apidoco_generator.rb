@@ -11,7 +11,7 @@ class ApidocoGenerator < Rails::Generators::Base
     resource_actions = actions(args[1..-1])
 
     resource_actions.each do |action|
-      create_file "#{Rails.root}/docs/#{file_name(resource, action)}.json",
+      create_file "#{Rails.root}/docs/#{file_name(resource, action)}",
                   file_content(resource, action)
     end
   end
@@ -28,30 +28,41 @@ class ApidocoGenerator < Rails::Generators::Base
     end_points_with_method = {
       index: {
         endpoint: '/',
-        method: 'GET'
+        method: 'GET',
+        collection: true
       },
       show: {
         endpoint: '/:id',
-        method: 'GET'
+        method: 'GET',
+        collection: false
       },
       create: {
         endpoint: '/',
-        method: 'POST'
+        method: 'POST',
+        collection: true
       },
       update: {
         endpoint: '/:id',
-        method: 'PUT|PATCH'
+        method: 'PUT|PATCH',
+        collection: false
       },
       destroy: {
         endpoint: '/:id',
-        method: 'DELETE'
+        method: 'DELETE',
+        collection: false
       }
     }
     end_points_with_method[action] || {}
   end
 
   def api_name(resource, action)
-    "#{action.to_s.titleize} #{resource.singularize.titleize}"
+    endpoint_with_method = default_end_points_with_method(action.intern)
+    resource_title = if endpoint_with_method[:collection]
+                       resource.pluralize.titleize
+                     else
+                       resource.singularize.titleize
+                     end
+    "#{action.to_s.titleize} #{resource_title}"
   end
 
   def file_name(resource, action)

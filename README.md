@@ -36,7 +36,7 @@ will create the following files by default with sample content
 - docs/api/v1/posts/create.json
 - docs/api/v1/posts/update.json
 - docs/api/v1/posts/destroy.json
-- docs/api/v1/posts.json
+- docs/api/v1/posts/index.json
 
 If you need to create Api documention file for actions other than default
 crud actions, you need to specify the actions for which the files need to be generated
