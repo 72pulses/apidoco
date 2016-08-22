@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('apiDocoApp')
 .controller('DocumentationController', ['$scope', function ($scope) {
   $scope.init = function () {
@@ -7,6 +9,10 @@ angular.module('apiDocoApp')
         $("#wrapper").toggleClass("toggled");
       });
     });
+  };
+
+  $scope.navigateToCurrentVersion = function () {
+    $window.location.href = landingUrl;
   };
 
   $scope.init();
