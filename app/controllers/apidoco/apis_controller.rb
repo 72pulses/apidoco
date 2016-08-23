@@ -6,7 +6,6 @@ module Apidoco
 
     def index
       redirect_to api_path(id: @vp.documentations.first.name)
-      # @v1 = VersionParser.new.documentations.first.as_json
     end
 
     def show

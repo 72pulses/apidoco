@@ -1,3 +1,4 @@
 Apidoco::Engine.routes.draw do
-  root 'api#index'
+  root 'apis#index'
+  resources :apis, only: [:show]
 end

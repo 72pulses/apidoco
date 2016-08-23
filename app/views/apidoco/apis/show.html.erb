@@ -1,6 +1,6 @@
 <div ng-controller="DocumentationController"
   ng-init="jsonItem = <%= @data.to_json %>;
-           documentationNames = <%= @vp.documentations.map(&:name) %>;
+           documentationVersions = <%= documentation_versions(@vp).to_json %>;
            currentVersion = '<%= @documentation.version %>';">
   <!-- Sidebar -->
   <%= render partial: "side_bar" %>
