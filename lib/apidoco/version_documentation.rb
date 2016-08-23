@@ -9,6 +9,7 @@ module Apidoco
     def name
       directory.basename.to_s
     end
+    alias_method :version, :name
 
     def as_json
       {
