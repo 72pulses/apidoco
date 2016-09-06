@@ -7,9 +7,9 @@ require "apidoco/version"
 Gem::Specification.new do |s|
   s.name        = "apidoco"
   s.version     = Apidoco::VERSION
-  s.authors     = ["Al Ameen"]
-  s.email       = ["k.ameen88@gmail.com"]
-  s.homepage    = "https://github.com/apidoco"
+  s.authors     = ["Al Ameen", "Sufinsha Musthafa", "Nidhin S G"]
+  s.email       = ["k.ameen88@gmail.com", "nidhinsg@gmail.com"]
+  s.homepage    = "https://github.com/alameenkhader/apidoco"
   s.summary     = "Document Rest APIs"
   s.description = "Document Rest APIs."
   s.license     = "MIT"
