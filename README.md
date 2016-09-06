@@ -1,5 +1,6 @@
 # Apidoco
-Easy documentation of REST APIs
+Easy documentation of REST APIs - [Demo](https://apidoco-demo.herokuapp.com/docs/).
+
 
 ## Installation
 Add this line to your application's Gemfile:
