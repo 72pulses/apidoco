@@ -7,10 +7,12 @@ class ApidocoGenerator < Rails::Generators::Base
   desc 'This generator creates empty folder for api versions'
   def create_apidoco_folder
     resource = args[0]
+    p 'ssssssssssssssssssssssssssssssssssss'
 
     resource_actions = actions(args[1..-1])
 
     resource_actions.each do |action|
+      p action
       create_file "#{Rails.root}/docs/#{file_name(resource, action)}",
                   file_content(resource, action)
     end
