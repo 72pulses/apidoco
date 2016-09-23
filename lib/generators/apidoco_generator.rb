@@ -11,7 +11,6 @@ class ApidocoGenerator < Rails::Generators::Base
     resource_actions = actions(args[1..-1])
 
     resource_actions.each do |action|
-      p action
       create_file "#{Rails.root}/docs/#{file_name(resource, action)}",
                   file_content(resource, action)
     end
