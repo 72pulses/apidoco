@@ -25,7 +25,7 @@ describe ApidocoGenerator, type: :generator do
   context 'custom actions' do
     let(:upload_acton) { 'upload' }
 
-    it "creates a the documentation files for the arguments" do
+    it "creates the documentation files for the actions supplied in arguments" do
       run_generator ['api/v1/posts', upload_acton]
 
       assert_file "#{Rails.root}/docs/api/v1/posts/#{upload_acton}.json"
