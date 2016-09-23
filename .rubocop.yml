@@ -1,0 +1,8 @@
+Style/IfUnlessModifier:
+  MaxLineLength: 120
+Style/WhileUntilModifier:
+  MaxLineLength: 120
+Metrics/LineLength:
+  Max: 120
+Style/FrozenStringLiteralComment:
+  Enabled: false
