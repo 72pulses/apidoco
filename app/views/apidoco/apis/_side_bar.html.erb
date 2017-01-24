@@ -1,0 +1,20 @@
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand">
+      <a href="#">
+        APIDOCO::{{currentVersion}}
+      </a>
+    </li>
+    <li class="padding-10">
+      <select class="form-control" ng-if="documentationVersions.length > 1" ng-model="currentVersion" ng-change="navigateToCurrentVersion(currentVersion);">
+        <option ng-repeat="version in documentationVersions" ng-value="version.name">{{version.name}}</option>
+      </select>
+    </li>
+    <li class="mt-10 padding-10">
+      <input type="text" placeholder="Search.." class="form-control input-sm" ng-model="searchKeyword" />
+    </li>
+    <li ng-repeat="x in jsonItem.apis | filter: searchKeyword">
+      <a href="#api_{{$index}}" du-smooth-scroll du-scrollspy>{{x.name}}</a>
+    </li>
+  </ul>
+</div>
