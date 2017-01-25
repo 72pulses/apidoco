@@ -1,0 +1,72 @@
+<div ng-controller="DocumentationController"
+  ng-init="apis= <%= @apis.to_json %>; init();">
+  <!-- Sidebar -->
+  <%= render partial: "side_bar" %>
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-2">
+              <a href="#menu-toggle" class="btn btn-default glyphicon glyphicon-align-justify" id="menu-toggle"></a>
+            </div>
+          </div><br />
+
+          <div class="row">
+            <div class="col-lg-12 text_wheat">
+              <strong>BASE URL</strong>
+              {{  jsonItem.base_url  }}
+            </div>
+          </div><br />
+
+          <div class="row api_details" ng-repeat="x in apis | filter: searchKeyword" id="api_{{ x.file_name }}">
+            {{ file = x.file;"" }}
+            <div class="col-lg-12">
+              <h4>{{ file.name }}</h4>
+              <div class="row mt-10">
+                <div class="col-lg-2 text-right">End Point:</div>
+                <div class="col-lg-10">
+                  <code>{{ file.end_point }}</code>
+                </div>
+              </div>
+
+              <div class="row mt-10">
+                <div class="col-lg-2 text-right">HTTP Method:</div>
+                <div class="col-lg-10">{{ file.http_method }}</div>
+              </div>
+
+              <div class="row mt-10">
+                <div class="col-lg-2 text-right">Params:</div>
+                <div class="col-lg-10">
+                  <p ng-repeat="param in file.params">
+                    <code>{{ param.key }}
+                      <span ng-if="param.required">
+                        #{{ param.required ? 'required' : 'optional' }}</span>
+                    </code>
+                  </p>
+                </div>
+              </div>
+
+              <div class="row mt-10">
+                <div class="col-lg-2 text-right">Examples:</div>
+                <div class="col-lg-10">
+                  <div ng-repeat="example in file.examples">
+                    <div>
+                      <p class="text-center">Request</p>
+                      <pre pretty-json="example.request" />
+                    </div>
+                    <div>
+                      <p class="text-center">Response</p>
+                      <pre pretty-json="example.response" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

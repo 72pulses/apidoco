@@ -1,13 +1,15 @@
 'use strict';
 
 angular.module('apiDocoApp')
-.controller('DocumentationController', ['$scope', '$window', function ($scope, $window) {
+.controller('DocumentationController', ['$scope', '$window', '$location', '$anchorScroll', function ($scope, $window, $location, $anchorScroll) {
   $scope.navigateToCurrentVersion = function (versionName) {
     var version = $scope.documentationVersions.filter(function(v) {
       return v.name === versionName;
     })[0];
     $window.location.href = version.path;
   };
+
+  $scope.orderApiStructureBy = 'is_folder';
 
   $scope.initMenuToggle = function() {
     $(document).ready(function () {
@@ -22,5 +24,10 @@ angular.module('apiDocoApp')
     $scope.initMenuToggle();
   };
 
-  $scope.init();
+  $scope.navigateToApi = function (node) {
+    if(!node.is_folder) {
+      $location.hash('api_' + node.file_name);
+      $anchorScroll();
+    }
+  }
 }]);

@@ -36,7 +36,8 @@ module Apidoco
       {
         is_folder: true,
         name: folder_name,
-        children: Apidoco::FolderParser.new(name).call
+        children: Apidoco::FolderParser.new(name).call,
+        parent: name.split('/')[1..-2].join('/').try(:titleize)
       }
     end
 
@@ -46,7 +47,8 @@ module Apidoco
       {
         is_folder: false,
         name: file_name,
-        file: JSON.parse(File.read(name))
+        file: JSON.parse(File.read(name)),
+        file_name: name.gsub('/', '')
       }
     end
   end

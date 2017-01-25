@@ -2,21 +2,23 @@ require_dependency "apidoco/application_controller"
 
 module Apidoco
   class ApisController < ApplicationController
-    before_action :set_version_parser
-
     def index
-      redirect_to api_path(id: @vp.documentations.first.name)
-    end
-
-    def show
-      @documentation = @vp.documentation(params[:id])
-      @data = @documentation.as_json
+      @apis_structure = FolderParser.new('docs').call
+      @apis = files_from_api_structure(@apis_structure)
     end
 
     private
 
-    def set_version_parser
-      @vp = VersionParser.new
+    def files_from_api_structure(apis_structure)
+      apis = []
+      apis_structure.each do |item|
+        if item[:is_folder]
+          apis += files_from_api_structure(item[:children])
+        else
+          apis.push << item
+        end
+      end
+      apis
     end
   end
 end
