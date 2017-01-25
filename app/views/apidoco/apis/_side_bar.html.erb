@@ -1,6 +1,6 @@
 <div id="sidebar-wrapper">
   <div class="sidebar-header">API TREE</div>
-  <div treecontrol class="tree-classic api-tree" tree-model="<%= @apis_structure.to_json %>" on-selection="navigateToApi(node)" order-by="orderApiStructureBy">
+  <div treecontrol class="tree-classic api-tree" tree-model="<%= @apis_structure.to_json %>" on-selection="navigateToApi(node)">
     {{ node.name }} {{ node.parent.length > 0 ? '(' + node.parent + ')' : ''  }}
   </div>
 </div>

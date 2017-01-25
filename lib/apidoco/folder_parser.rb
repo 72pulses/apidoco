@@ -42,13 +42,13 @@ module Apidoco
     end
 
     def build_file_response(name)
-      file_name = name.split('/').last.gsub('.json', '').try(:titleize)
+      file_name = name.split('/').last.delete('.json', '').try(:titleize)
 
       {
         is_folder: false,
         name: file_name,
         file: JSON.parse(File.read(name)),
-        file_name: name.gsub('/', '')
+        file_name: name.delete('/', '')
       }
     end
   end

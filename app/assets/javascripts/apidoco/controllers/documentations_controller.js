@@ -9,8 +9,6 @@ angular.module('apiDocoApp')
     $window.location.href = version.path;
   };
 
-  $scope.orderApiStructureBy = 'is_folder';
-
   $scope.initMenuToggle = function() {
     $(document).ready(function () {
       $("#menu-toggle").click(function(e) {
