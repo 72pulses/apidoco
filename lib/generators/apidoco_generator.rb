@@ -67,16 +67,16 @@ class ApidocoGenerator < Rails::Generators::Base
     endpoint_with_method = default_end_points_with_method(action.intern)
     name = api_name(resource_name(resource), action)
     <<-FILE
-{
-  "name": "#{name}",
-  "end_point": "#{resource}#{endpoint_with_method[:endpoint]}",
-  "http_method": "#{endpoint_with_method[:method]}",
-  "params": [],
-  "examples": [{
-    "request": {},
-    "response": {}
-  }]
-}
-FILE
+      {
+        "name": "#{name}",
+        "end_point": "#{resource}#{endpoint_with_method[:endpoint]}",
+        "http_method": "#{endpoint_with_method[:method]}",
+        "params": [],
+        "examples": [{
+          "request": {},
+          "response": {}
+        }]
+      }
+    FILE
   end
 end
