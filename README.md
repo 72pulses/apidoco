@@ -65,6 +65,9 @@ The gem is available as open source under the terms of the [MIT License](http://
   "name": "Create Post",
   "end_point": "/posts",
   "http_method": "POST",
+  "header": {
+    "Authorization": "Token token=token"
+  },
   "params": [{
     "key": "post['name']",
     "required": true
@@ -72,6 +75,9 @@ The gem is available as open source under the terms of the [MIT License](http://
     "key": "post['content']",
     "required": false
   }],
+  "notes": [
+    "Authorization Token Need to be passed via header"
+  ]
   "examples": [{
     "request": {
       "post": {
