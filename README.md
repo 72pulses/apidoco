@@ -67,7 +67,8 @@ The gem is available as open source under the terms of the [MIT License](http://
   "http_method": "POST",
   "params": [{
     "key": "post['name']",
-    "required": true
+    "required": true,
+    "type": "data-type"
   }, {
     "key": "post['content']",
     "required": false
@@ -96,10 +97,12 @@ The gem is available as open source under the terms of the [MIT License](http://
   "http_method": "POST",
   "params": [{
     "key": "post['name']",
-    "required": true
+    "required": true,
+    "type": "data-type"
   }, {
     "key": "post['content']",
-    "required": false
+    "required": false,
+    "type": "data-type"
   }],
   "examples": [{
     "request": {
