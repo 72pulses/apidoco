@@ -38,6 +38,19 @@
               </div>
 
               <div class="row mt-10">
+                <div class="col-lg-2 text-right">Header:</div>
+                <div class="col-lg-10">
+                  <p ng-repeat="(key, value) in file.header">
+                    <code>{{ key }}:
+                      <span>
+                        {{ value }}
+                      </span>
+                    </code>
+                  </p>
+                </div>
+              </div>
+
+              <div class="row mt-10">
                 <div class="col-lg-2 text-right">Params:</div>
                 <div class="col-lg-10">
                   <p ng-repeat="param in x.params">
@@ -46,6 +59,15 @@
                         #{{param.required ? 'required' : 'optional'}}</span>
                       <span ng-if="param.type">type: {{param.type}}</span>
                     </code>
+                  </p>
+                </div>
+              </div>
+
+              <div class="row mt-10">
+                <div class="col-lg-2 text-right">Notes:</div>
+                <div class="col-lg-10">
+                  <p ng-repeat="note in file.notes">
+                    {{ note }}
                   </p>
                 </div>
               </div>
