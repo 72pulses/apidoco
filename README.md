@@ -68,7 +68,7 @@ The gem is available as open source under the terms of the [MIT License](http://
   "params": [{
     "key": "post['name']",
     "required": true,
-    "type": "data-type"
+    "type": "String"
   }, {
     "key": "post['content']",
     "required": false
@@ -98,11 +98,11 @@ The gem is available as open source under the terms of the [MIT License](http://
   "params": [{
     "key": "post['name']",
     "required": true,
-    "type": "data-type"
+    "type": "String"
   }, {
     "key": "post['content']",
     "required": false,
-    "type": "data-type"
+    "type": "String"
   }],
   "examples": [{
     "request": {
