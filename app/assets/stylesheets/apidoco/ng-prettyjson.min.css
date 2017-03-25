@@ -4,4 +4,4 @@
 * License: MIT
 **/
 
-pre.pretty-json{outline:1px solid #e9e9e9;padding:5px;margin:5px}pre.pretty-json span.string{color:green}pre.pretty-json span.number{color:#ff8c00}pre.pretty-json span.boolean{color:#00f}pre.pretty-json span.null{color:#ff00ff}pre.pretty-json span.key{color:red}pre.pretty-json span.sep{color:#000}
+pre.pretty-json{padding:16px;margin:5px}pre.pretty-json span.string{color:green}pre.pretty-json span.number{color:#ff8c00}pre.pretty-json span.boolean{color:#00f}pre.pretty-json span.null{color:#ff00ff}pre.pretty-json span.key{color:red}pre.pretty-json span.sep{color:#000}
