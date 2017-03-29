@@ -78,7 +78,7 @@ The gem is available as open source under the terms of the [MIT License](http://
   }],
   "notes": [
     "Authorization Token Need to be passed via header"
-  ]
+  ],
   "examples": [{
     "request": {
       "post": {
