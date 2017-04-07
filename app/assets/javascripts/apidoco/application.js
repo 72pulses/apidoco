@@ -12,4 +12,7 @@
 //
 //= require angular
 //= require jquery.min
+//= require jquery.json-viewer
 //= require_tree .
+
+
