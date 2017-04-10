@@ -39,8 +39,8 @@
                 <div class="col-lg-10">{{x.http_method}}</div>
               </div>
 
-              <div class="row mt-10">
-                <div class="col-lg-2 text-right">Header:</div>
+              <div class="row mt-10" ng-if="headers && headers.length > 0">
+                <div class="col-lg-2 text-right">Headers:</div>
                 <div class="col-lg-10">
                   <p ng-repeat="(key, value) in x.header">
                     <code>{{ key }}:
@@ -52,7 +52,7 @@
                 </div>
               </div>
 
-              <div class="row mt-10">
+              <div class="row mt-10" ng-if="params && params.length > 0">
                 <div class="col-lg-2 text-right">Params:</div>
                 <div class="col-lg-10">
                   <p ng-repeat="param in x.params">
@@ -65,7 +65,7 @@
                 </div>
               </div>
 
-              <div class="row mt-10">
+              <div class="row mt-10" ng-if="x.notes && notes.length > 0">
                 <div class="col-lg-2 text-right">Notes:</div>
                 <div class="col-lg-10">
                   <p ng-repeat="note in x.notes">
@@ -74,15 +74,15 @@
                 </div>
               </div>
 
-              <div class="row mt-10">
+              <div class="row mt-10" ng-if="x.examples && x.examples.length > 0">
                 <div class="col-lg-2 text-right">Examples:</div>
                 <div class="col-lg-10">
                   <div ng-repeat="example in x.examples">
-                    <div>
+                    <div ng-if="example.request">
                       <p class="text-center">Request</p>
                       <div class="well" jq-json-viewer data="example.request"></div>
                     </div>
-                    <div>
+                    <div ng-if="example.response">
                       <p class="text-center">Response</p>
                       <div class="well" jq-json-viewer data="example.response"></div>
                     </div>
