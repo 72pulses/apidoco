@@ -80,33 +80,16 @@
                   <div ng-repeat="example in x.examples">
                     <div>
                       <p class="text-center">Request</p>
-                      <div class="pretty">
-                        <pre pretty-json="example.request" />
-                      </div>
-                      <div class="collaps">
-                        <json-formatter json="example.request" open="1"></json-formatter>
-                      </div>
+                      <div class="well" jq-json-viewer data="example.request"></div>
                     </div>
                     <div>
                       <p class="text-center">Response</p>
-                      <pre pretty-json="example.response" />
-                      <json-formatter json="example.response" open="1"></json-formatter>
+                      <div class="well" jq-json-viewer data="example.response"></div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="row mt-10">
-                <div class="col-lg-2 text-right">Examples:</div>
-                <div class="col-lg-10">
-                  <div ng-repeat="example in x.examples">
-                    <p class="text-center">Request</p>
-                    <pre class="json-viewer" data-content= "{{ example.request }}">
-                      
-                    </pre>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

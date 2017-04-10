@@ -11,8 +11,11 @@
 // about supported directives.
 //
 //= require angular
-//= require jquery.min
-//= require jquery.json-viewer
-//= require_tree .
-
-
+//
+//= require apidoco/jquery.min
+//= require apidoco/jquery.json-viewer
+//= require apidoco/bootstrap/bootstrap.min
+//= require apidoco/directives/angular_scroll.min
+//= require apidoco/apidoco_app
+//= require apidoco/directives/jq_json_viewer
+//= require apidoco/controllers/documentations_controller
