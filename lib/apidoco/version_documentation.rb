@@ -14,7 +14,7 @@ module Apidoco
     def as_json
       {
         name: name,
-        base_url: "",
+        base_url: '',
         apis: resource_documentations.flat_map(&:as_json)
       }
     end

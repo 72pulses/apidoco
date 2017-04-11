@@ -7,7 +7,16 @@ module Apidoco
     end
 
     def as_json
-      children.map { |c| JSON.parse(File.read(c)) }
+      sort_json
+    end
+
+    def children_json
+      doco_apis = children.map { |c| JSON.parse(File.read(c)) }
+      doco_apis.delete_if { |h| h['published'] == false }
+    end
+
+    def sort_json
+      children_json.sort_by { |k| k['sort_order'] }
     end
 
     def children
