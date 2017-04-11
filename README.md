@@ -62,6 +62,8 @@ The gem is available as open source under the terms of the [MIT License](http://
 ```
 // docs/api/v1/posts/create.json
 {
+  "published": true,
+  "sort_order": 1,
   "name": "Create Post",
   "end_point": "/posts",
   "http_method": "POST",
@@ -98,6 +100,8 @@ The gem is available as open source under the terms of the [MIT License](http://
 
 // docs/api/v1/posts/edit.json
 {
+  "published": true,
+  "sort_order": 2,
   "name": "Edit Post",
   "end_point": "/posts",
   "http_method": "POST",
@@ -129,6 +133,8 @@ The gem is available as open source under the terms of the [MIT License](http://
 
 //docs/api/v1/posts/delete.json
 {
+  "published": true,
+  "sort_order": 3,
   "name": "Delete Post",
   "end_point": "/posts",
   "http_method": "POST",
