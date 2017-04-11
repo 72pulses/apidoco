@@ -1,4 +1,4 @@
-# Apidoco
+# Apidoco - Ruby on Rails API documentation tool 
 Easy documentation of REST APIs - [Demo](https://apidoco-demo.herokuapp.com/docs/).
 
 
