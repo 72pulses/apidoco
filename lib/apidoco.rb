@@ -5,4 +5,6 @@ require "apidoco/version_parser"
 require "apidoco/version_documentation"
 require "apidoco/resource_documentation"
 
-module Apidoco; end
+module Apidoco
+  mattr_accessor :auth_name, :auth_password
+end

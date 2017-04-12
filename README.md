@@ -1,4 +1,4 @@
-# Apidoco - Ruby on Rails API documentation tool 
+# Apidoco - Ruby on Rails API documentation tool
 Easy documentation of REST APIs - [Demo](https://apidoco-demo.herokuapp.com/docs/).
 
 
@@ -161,4 +161,12 @@ The gem is available as open source under the terms of the [MIT License](http://
     }
   }]
 }
+```
+## How to add authentication
+
+Create a configuration file in e.g. /config/initializers/apidoco.rb and add the following.
+
+```ruby
+Apidoco.auth_name = 'authentication_name'
+Apidoco.auth_password = 'authentication_password'
 ```
