@@ -4,6 +4,9 @@ module Apidoco
   class ApisController < ApplicationController
     before_action :set_version_parser
 
+    http_basic_authenticate_with name: Apidoco.auth_name, password: Apidoco.auth_password,
+                                 if: proc { Apidoco.auth_name && Apidoco.auth_password }
+
     def index
       redirect_to api_path(id: @vp.documentations.first.name)
     end
