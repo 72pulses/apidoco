@@ -79,12 +79,24 @@
                 <div class="col-lg-10">
                   <div ng-repeat="example in x.examples">
                     <div ng-if="example.request">
-                      <p class="text-center">Request</p>
-                      <div class="well" jq-json-viewer data="example.request"></div>
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">Request</h4>
+                        </div>
+                        <div class="panel-body">
+                          <button class="btn btn-default btn-sm pull-right">Copy</button>
+                          <div jq-json-viewer data="example.request"></div>
+                        </div>
+                      </div>
                     </div>
                     <div ng-if="example.response">
-                      <p class="text-center">Response</p>
-                      <div class="well" jq-json-viewer data="example.response"></div>
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">Response</h4>
+                        </div>
+                        <div class="panel-body" jq-json-viewer data="example.response">
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

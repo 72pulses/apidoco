@@ -7,7 +7,7 @@ angular.module('apiDocoApp').directive('jqJsonViewer', [function() {
       data: "="
     },
     link: function(scope, elem, attrs) {
-      $(elem).jsonViewer(scope.data);
+      $(elem).jsonViewer(scope.data, { withQuotes: true });
     }
   };
 }]);
