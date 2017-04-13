@@ -3,6 +3,10 @@
 # Apidoco - Ruby on Rails API documentation tool
 Easy documentation of REST APIs - [Demo](https://apidoco-demo.herokuapp.com/docs/).
 
+## Screenshots
+
+![screeshot 1](https://github.com/72pulses/apidoco/blob/feature/update-readme/images/1.jpg?raw=true)
+
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -20,6 +24,15 @@ Add this line to your routes:
 
 ```ruby
 mount Apidoco::Engine, at: "/docs"
+```
+
+## How to add authentication
+
+Create a configuration file in initializers e.g. /config/initializers/apidoco.rb and add the following.
+
+```ruby
+Apidoco.auth_name = 'authentication_name'
+Apidoco.auth_password = 'authentication_password'
 ```
 
 ## Generators
@@ -52,12 +65,6 @@ rails g apidoco api/v1/posts download upload
 will create the following files with sample content
 - docs/api/v1/posts/download.json
 - docs/api/v1/posts/upload.json
-
-## Contributing
-Contribution directions go here.
-
-## License
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
 ### Sample API documentation format
 
@@ -99,7 +106,9 @@ The gem is available as open source under the terms of the [MIT License](http://
     }
   }]
 }
+```
 
+```
 // docs/api/v1/posts/edit.json
 {
   "published": true,
@@ -142,10 +151,12 @@ The gem is available as open source under the terms of the [MIT License](http://
   "http_method": "POST",
   "params": [{
     "key": "post['name']",
-    "required": true
+    "required": true,
+    "type": "String"
   }, {
     "key": "post['content']",
-    "required": false
+    "required": false,
+    "type": "String"
   }],
   "examples": [{
     "request": {
@@ -164,11 +175,20 @@ The gem is available as open source under the terms of the [MIT License](http://
   }]
 }
 ```
-## How to add authentication
 
-Create a configuration file in e.g. /config/initializers/apidoco.rb and add the following.
+## Documentation format reference
 
-```ruby
-Apidoco.auth_name = 'authentication_name'
-Apidoco.auth_password = 'authentication_password'
-```
+
+| Key | Description | Default | Example |
+| --- | --- | --- | --- |
+| `published` | Set this to false if you do not want to list this api | `true` | -- |
+| `sort_order` | The  order of the api in the documenatation | 0 | `"sort_order": 10` |
+| `name` | Name of the api | --- | --- |
+| `end_point` | --- | --- | `"end_point": "/posts"` |
+| `http_method` | The HTTP method of the API | --- | `"http_method": "GET"` |
+| `params` | Parameters to be used | --- | `"params: [{ "key": "post['name']",    "required": true, "type": "String" }]"` |
+| `examples` | Array of sample requests and responses | --- | `[{ "request": { "post": { "name": "I was scared" } } }, "response": { "message": "Post was successfully created", "id": 101 } }]`
+
+
+## License
+The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
