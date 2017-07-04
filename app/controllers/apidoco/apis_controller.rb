@@ -1,4 +1,4 @@
-require_dependency "apidoco/application_controller"
+require_dependency 'apidoco/application_controller'
 
 module Apidoco
   class ApisController < ApplicationController
