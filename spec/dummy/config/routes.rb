@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount Apidoco::Engine => "/apidoco"
+  mount Apidoco::Engine => '/apidoco'
 end

@@ -1,3 +1,7 @@
+AllCops:
+  Exclude:
+    - 'spec/dummy/db/schema.rb'
+
 Style/IfUnlessModifier:
   MaxLineLength: 120
 Style/WhileUntilModifier:
@@ -6,3 +10,5 @@ Metrics/LineLength:
   Max: 120
 Style/FrozenStringLiteralComment:
   Enabled: false
+Documentation:
+    Enabled: false

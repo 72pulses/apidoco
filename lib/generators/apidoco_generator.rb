@@ -21,7 +21,7 @@ class ApidocoGenerator < Rails::Generators::Base
   def actions(args)
     return args if args.present?
 
-    [:show, :index, :create, :update, :destroy]
+    %i[show index create update destroy]
   end
 
   def default_end_points_with_method(action)

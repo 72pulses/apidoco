@@ -3,7 +3,7 @@ require_relative 'boot'
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
-require "apidoco"
+require 'apidoco'
 
 module Dummy
   class Application < Rails::Application
@@ -12,4 +12,3 @@ module Dummy
     # -- all .rb files in that directory are automatically loaded.
   end
 end
-
