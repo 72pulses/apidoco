@@ -1,6 +1,6 @@
 <!-- recursive template -->
 <script type="text/ng-template" id="documentationTree">
-  <a href="#" du-smooth-scroll du-scrollspy>{{documentation.name}}</a>
+  <a href="#{{documentation.id}}">{{documentation.name}}</a>
   <ul ng-if="documentation.children">
     <li ng-repeat="documentation in documentation.children" ng-include="'documentationTree'">
     </li>

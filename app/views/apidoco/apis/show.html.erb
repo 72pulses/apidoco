@@ -25,10 +25,10 @@
             </div>
           </div><br />
 
-          <div class="row api_details" ng-repeat="x in documentationArray | filter: searchKeyword" id="api_{{$index}}">
+          <div class="row api_details" ng-repeat="x in documentationArray | filter: searchKeyword" id="{{x.id}}">
             <div class="col-lg-12">
               <ol class="breadcrumb">
-                <li ng-repeat="p in x.path">{{p}}</li>
+                <li ng-repeat="p in x.parents">{{p}}</li>
                 <li class="active">{{x.name}}</li>
               </ol>
               <h4>{{x.name}}</h4>

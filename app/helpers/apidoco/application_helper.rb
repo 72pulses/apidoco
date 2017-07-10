@@ -6,12 +6,12 @@ module Apidoco
       end
     end
 
-    def build_documentation_array(documentations, path: [])
+    def build_documentation_array(documentations)
       documentation_array = documentations.map do |documentation|
         if documentation[:is_folder]
-          build_documentation_array(documentation[:children], path: path +  [documentation[:name]])
+          build_documentation_array(documentation[:children])
         else
-          documentation.merge!(path: path)
+          documentation
         end
       end
 
