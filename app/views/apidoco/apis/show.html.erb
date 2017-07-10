@@ -31,16 +31,61 @@
                 <li ng-repeat="p in x.parents">{{p}}</li>
                 <li class="active">{{x.name}}</li>
               </ol>
-              <h4><b class="text-primary">{{x.http_method}}</b>&nbsp;&nbsp;&nbsp;&nbsp;{{x.name}}</h4>
-              <div class="row mt-10">
-                <div class="col-lg-2 text-right">End Point:</div>
-                <div class="col-lg-5">
-                  <div class="input-group">
-                    <input type="text" readonly class="form-control" value="{{x.end_point}}">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button" ngclipboard data-clipboard-text="{{x.end_point}}">Copy</button>
-                    </span>
+              <h2 class="section-title">{{x.name}}</h4>
+
+              <p ng-if="x.description">{{x.description}}</p>
+
+              <div class="section-block">
+                <h3 class="block-title">Request</h5>
+                <div class="row">
+                  <div class="col-sm-8">
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                        <button class="btn btn-success" type="button"><b>{{x.http_method}}</b></button>
+                      </span>
+                      <input type="text" readonly class="form-control" value="{{x.end_point}}">
+                    </div>
                   </div>
+                  <div class="col-sm-4">
+                    <button class="btn btn-default btn-sm mt-2" type="button" ngclipboard data-clipboard-text="{{x.end_point}}">Copy</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="section-block" ng-if="x.params && x.params.length > 0">
+                <h3 class="block-title">Parameters</h5>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <td>Parameter Name</td>
+                        <td></td>
+                        <td>Type</td>
+                        <td>Description</td>
+                        <td>Notes</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="param in x.params">
+                        <td>
+                          <code>{{param.key}}</code>
+                        </td>
+                        <td>
+                          <button class="btn btn-xs btn-danger" ng-if="param.required">required</button>
+                          <button class="btn btn-xs btn-primary" ng-if="!param.required">optional</button>
+                        </td>
+                        <td>{{param.type}}</td>
+                        <td>{{param.description}}</td>
+                        <td>
+                          {{param.notes}}
+                          <p ng-if="param.validations">
+                            <b>Validations:</b><br>
+                            <span ng-repeat="validation in param.validations">{{validation}}<br></span>
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
 
@@ -52,19 +97,6 @@
                       <span>
                         {{ value }}
                       </span>
-                    </code>
-                  </p>
-                </div>
-              </div>
-
-              <div class="row mt-10" ng-if="x.params && x.params.length > 0">
-                <div class="col-lg-2 text-right">Params:</div>
-                <div class="col-lg-10">
-                  <p ng-repeat="param in x.params">
-                    <code>{{param.key}}
-                      <span ng-if="param.required">
-                        #{{param.required ? 'required' : 'optional'}}</span>
-                      <span ng-if="param.type">type: {{param.type}}</span>
                     </code>
                   </p>
                 </div>

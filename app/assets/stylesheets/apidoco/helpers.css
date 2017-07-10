@@ -3,6 +3,10 @@
   cursor: pointer;
 }
 
+.mt-2 {
+  margin-top: 2px !important;
+}
+
 .mt-10 {
   margin-top: 10px !important;
 }
@@ -10,3 +14,4 @@
 .padding-10 {
   padding: 10px !important;
 }
+
