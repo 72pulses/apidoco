@@ -31,7 +31,7 @@
                 <li ng-repeat="p in x.parents">{{p}}</li>
                 <li class="active">{{x.name}}</li>
               </ol>
-              <h4>{{x.name}}</h4>
+              <h4><b class="text-primary">{{x.http_method}}</b>&nbsp;&nbsp;&nbsp;&nbsp;{{x.name}}</h4>
               <div class="row mt-10">
                 <div class="col-lg-2 text-right">End Point:</div>
                 <div class="col-lg-5">
@@ -42,11 +42,6 @@
                     </span>
                   </div>
                 </div>
-              </div>
-
-              <div class="row mt-10">
-                <div class="col-lg-2 text-right">HTTP Method:</div>
-                <div class="col-lg-10">{{x.http_method}}</div>
               </div>
 
               <div class="row mt-10" ng-if="x.header">
