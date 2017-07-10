@@ -89,26 +89,35 @@
                 </div>
               </div>
 
-              <div class="row mt-10" ng-if="x.header">
-                <div class="col-lg-2 text-right">Headers:</div>
-                <div class="col-lg-10">
-                  <p ng-repeat="(key, value) in x.header">
-                    <code>{{ key }}:
-                      <span>
-                        {{ value }}
-                      </span>
-                    </code>
-                  </p>
+              <div class="section-block" ng-if="x.header">
+                <h3 class="block-title">Headers</h5>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <td>Name</td>
+                        <td>Description</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="(key, value) in x.header">
+                        <td>
+                          <code>{{key}}</code>
+                        </td>
+                        <td>
+                          <code>{{value}}</code>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
 
-              <div class="row mt-10" ng-if="x.notes">
-                <div class="col-lg-2 text-right">Notes:</div>
-                <div class="col-lg-10">
-                  <p ng-repeat="note in x.notes">
-                    {{ note }}
-                  </p>
-                </div>
+              <div class="section-block" ng-if="x.notes">
+                <h3 class="block-title">Notes</h5>
+                <p ng-repeat="note in x.notes">
+                  {{ note }}
+                </p>
               </div>
 
               <div class="row mt-10" ng-if="x.examples && x.examples.length > 0">
