@@ -10,7 +10,7 @@ angular.module('apiDocoApp').directive('jqJsonViewer', [function() {
       $(elem).jsonViewer(scope.data, { withQuotes: true });
 
       // Collapse the second level
-      $(elem).find('ul.json-dict > li > ul > li > a.json-toggle').click();
+      $(elem).find('ul.json-dict > li > ol > li > a.json-toggle').click();
     }
   };
 }]);
