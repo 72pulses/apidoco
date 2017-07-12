@@ -123,13 +123,16 @@
               <div class="section-block" ng-if="x.examples && x.examples.length > 0">
                 <h3 class="block-title">Examples</h5>
                 <div class="rows" ng-repeat="example in x.examples">
-                  <div class="col-sm-6" ng-if="example.request && example.request.length > 2">
+                  <div class="col-sm-6" ng-if="example.request">
                     <div class="panel panel-default">
                       <div class="panel-heading">
                         <h4 class="panel-title">Request</h4>
                       </div>
                       <div class="panel-body">
-                        <button class="btn btn-default btn-sm pull-right" ngclipboard data-clipboard-text="{{example.request}}">Copy</button>
+                        <div class="btn-group pull-right" role="group">
+                          <button class="btn btn-default btn-sm" ng-click="viewRaw(example.request)">Raw</button>
+                          <button class="btn btn-default btn-sm" ngclipboard data-clipboard-text="{{example.request}}">Copy</button>
+                        </div>
                         <div jq-json-viewer data="example.request"></div>
                       </div>
                     </div>
@@ -140,7 +143,10 @@
                         <h4 class="panel-title">Response</h4>
                       </div>
                       <div class="panel-body">
-                        <button class="btn btn-default btn-sm pull-right" ngclipboard data-clipboard-text="{{example.response}}">Copy</button>
+                        <div class="btn-group pull-right" role="group">
+                          <button class="btn btn-default btn-sm" ng-click="viewRaw(example.response)">Raw</button>
+                          <button class="btn btn-default btn-sm" ngclipboard data-clipboard-text="{{example.response}}">Copy</button>
+                        </div>
                         <div jq-json-viewer data="example.response"></div>
                       </div>
                     </div>
