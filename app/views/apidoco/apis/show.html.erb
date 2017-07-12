@@ -60,9 +60,9 @@
                       <tr>
                         <td>Parameter Name</td>
                         <td></td>
-                        <td>Type</td>
+                        <td>Data Type</td>
                         <td>Description</td>
-                        <td>Notes</td>
+                        <td></td>
                       </tr>
                     </thead>
                     <tbody>
@@ -120,30 +120,28 @@
                 </p>
               </div>
 
-              <div class="row mt-10" ng-if="x.examples && x.examples.length > 0">
-                <div class="col-lg-2 text-right">Examples:</div>
-                <div class="col-lg-10">
-                  <div ng-repeat="example in x.examples">
-                    <div ng-if="example.request">
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">Request</h4>
-                        </div>
-                        <div class="panel-body">
-                          <button class="btn btn-default btn-sm pull-right" ngclipboard data-clipboard-text="{{example.request}}">Copy</button>
-                          <div jq-json-viewer data="example.request"></div>
-                        </div>
+              <div class="section-block" ng-if="x.examples && x.examples.length > 0">
+                <h3 class="block-title">Examples</h5>
+                <div class="rows" ng-repeat="example in x.examples">
+                  <div class="col-sm-6" ng-if="example.request && example.request.length > 2">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">Request</h4>
+                      </div>
+                      <div class="panel-body">
+                        <button class="btn btn-default btn-sm pull-right" ngclipboard data-clipboard-text="{{example.request}}">Copy</button>
+                        <div jq-json-viewer data="example.request"></div>
                       </div>
                     </div>
-                    <div ng-if="example.response">
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">Response</h4>
-                        </div>
-                        <div class="panel-body">
-                          <button class="btn btn-default btn-sm pull-right" ngclipboard data-clipboard-text="{{example.response}}">Copy</button>
-                          <div jq-json-viewer data="example.response"></div>
-                        </div>
+                  </div>
+                  <div class="col-sm-6" ng-if="example.response">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">Response</h4>
+                      </div>
+                      <div class="panel-body">
+                        <button class="btn btn-default btn-sm pull-right" ngclipboard data-clipboard-text="{{example.response}}">Copy</button>
+                        <div jq-json-viewer data="example.response"></div>
                       </div>
                     </div>
                   </div>
