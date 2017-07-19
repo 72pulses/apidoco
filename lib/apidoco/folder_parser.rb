@@ -30,5 +30,9 @@ module Apidoco
         end
       end
     end
+
+    def published?
+      true
+    end
   end
 end

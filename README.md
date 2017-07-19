@@ -72,7 +72,6 @@ will create the following files with sample content
 // docs/api/v1/posts/create.json
 {
   "published": true,
-  "sort_order": 1,
   "name": "Create Post",
   "end_point": "/posts",
   "http_method": "POST",
@@ -112,7 +111,6 @@ will create the following files with sample content
 // docs/api/v1/posts/edit.json
 {
   "published": true,
-  "sort_order": 2,
   "name": "Edit Post",
   "end_point": "/posts",
   "http_method": "POST",
@@ -182,11 +180,11 @@ will create the following files with sample content
 | Key | Description | Default | Example |
 | --- | --- | --- | --- |
 | `published` | Set this to false if you do not want to list this api | `true` | -- |
-| `sort_order` | The  order of the api in the documenatation | 0 | `"sort_order": 10` |
 | `name` | Name of the api | --- | --- |
 | `end_point` | --- | --- | `"end_point": "/posts"` |
 | `http_method` | The HTTP method of the API | --- | `"http_method": "GET"` |
 | `params` | Parameters to be used | --- | `"params: [{ "key": "post['name']",    "required": true, "type": "String" }]"` |
+| `header` | headers to be used | --- | `"header: { "Authorization": "Token token=<token>", "Content-type": 'application/json' }"` |
 | `examples` | Array of sample requests and responses | --- | `[{ "request": { "post": { "name": "I was scared" } } }, "response": { "message": "Post was successfully created", "id": 101 } }]`
 
 

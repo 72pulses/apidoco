@@ -52,6 +52,30 @@
                 </div>
               </div>
 
+              <div class="section-block" ng-if="x.header">
+                <h3 class="block-title">Headers</h5>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <td>Name</td>
+                        <td>Description</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="(key, value) in x.header">
+                        <td>
+                          <code>{{key}}</code>
+                        </td>
+                        <td>
+                          <code>{{value}}</code>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
               <div class="section-block" ng-if="x.params && x.params.length > 0">
                 <h3 class="block-title">Parameters</h5>
                 <div class="table-responsive">
@@ -82,30 +106,6 @@
                             <b>Validations:</b><br>
                             <span ng-repeat="validation in param.validations">{{validation}}<br></span>
                           </p>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              <div class="section-block" ng-if="x.header">
-                <h3 class="block-title">Headers</h5>
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <td>Name</td>
-                        <td>Description</td>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr ng-repeat="(key, value) in x.header">
-                        <td>
-                          <code>{{key}}</code>
-                        </td>
-                        <td>
-                          <code>{{value}}</code>
                         </td>
                       </tr>
                     </tbody>
