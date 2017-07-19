@@ -12,7 +12,7 @@ module Apidoco
       {
         is_folder: true,
         name: basename,
-        children: children.map(&:as_json)
+        children: children.select(&:published?).map(&:as_json)
       }
     end
 

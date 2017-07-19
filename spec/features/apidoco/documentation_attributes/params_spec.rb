@@ -16,7 +16,9 @@ RSpec.feature 'Document Attributes', type: :feature do
 
         visit '/apidoco'
         param = create_json[:params][0]
-        expect(page).to have_text("#{param[:key]} #required type: #{param[:type]}")
+        expect(page).to have_text("#{param[:key]}")
+        expect(page).to have_text("required")
+        expect(page).to have_text("#{param[:type]}")
       end
     end
 
@@ -34,7 +36,9 @@ RSpec.feature 'Document Attributes', type: :feature do
 
         visit '/apidoco'
         param = create_json[:params][0]
-        expect(page).to have_text("#{param[:key]} type: #{param[:type]}")
+        expect(page).to have_text("#{param[:key]}")
+        expect(page).to have_text("optional")
+        expect(page).to have_text("#{param[:type]}")
       end
     end
   end

@@ -19,5 +19,9 @@ module Apidoco
     def id
       parents.push(content['name']).join('-').downcase.delete(' ')
     end
+
+    def published?
+      content['published'].nil? || content['published']
+    end
   end
 end
