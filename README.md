@@ -140,6 +140,9 @@ will create the following files with sample content
   }]
 }
 
+```
+
+```
 //docs/api/v1/posts/delete.json
 {
   "published": true,
@@ -183,7 +186,7 @@ will create the following files with sample content
 | `name` | Name of the api | --- | --- |
 | `end_point` | --- | --- | `"end_point": "/posts"` |
 | `http_method` | The HTTP method of the API | --- | `"http_method": "GET"` |
-| `params` | Parameters to be used | --- | `"params: [{ "key": "post['name']",    "required": true, "type": "String" }]"` |
+| `params` | Parameters to be used | --- | `"params: [{ "key": "post['name']", "required": true, "type": "String", "notes": ["Name or title of the post"], "validations": ["should be less than or equal to 150 characters"] }]"` |
 | `header` | headers to be used | --- | `"header: { "Authorization": "Token token=<token>", "Content-type": 'application/json' }"` |
 | `examples` | Array of sample requests and responses | --- | `[{ "request": { "post": { "name": "I was scared" } } }, "response": { "message": "Post was successfully created", "id": 101 } }]`
 
