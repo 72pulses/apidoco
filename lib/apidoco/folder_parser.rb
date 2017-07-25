@@ -12,7 +12,7 @@ module Apidoco
       {
         is_folder: true,
         name: basename,
-        children: children.select(&:published?).map(&:as_json)
+        children: children.select(&:published?).sort_by(&:sort_order).map(&:as_json)
       }
     end
 
@@ -33,6 +33,10 @@ module Apidoco
 
     def published?
       true
+    end
+
+    def sort_order
+      999
     end
   end
 end

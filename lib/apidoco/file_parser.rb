@@ -23,5 +23,9 @@ module Apidoco
     def published?
       content['published'].nil? || content['published']
     end
+
+    def sort_order
+      content['sort_order'] || 999
+    end
   end
 end

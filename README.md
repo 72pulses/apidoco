@@ -72,70 +72,89 @@ will create the following files with sample content
 // docs/api/v1/posts/create.json
 {
   "published": true,
-  "name": "Create Post",
-  "end_point": "/posts",
+  "name": "Create",
+  "sort_order": 1,
+  "end_point": "api/v1/posts/:id.json",
   "http_method": "POST",
-  "header": {
-    "Authorization": "Token token=token"
-  },
   "params": [{
-    "key": "post['name']",
+    "key": "post[title]",
     "required": true,
-    "type": "String"
+    "type": "String",
+    "description": "Title of the post",
+    "validations": ["Should be less than or equal to 40 characters"]
   }, {
-    "key": "post['content']",
-    "required": false
+    "key": "post[content]",
+    "required": true,
+    "type": "String",
+    "description": "Content/Body of the post",
+    "validations": ["Should be less than or equal to 300 characters"]
+  }, {
+    "key": "post[publsihed]",
+    "required": true,
+    "type": "Boolean",
+    "description": "Published status of the post"
   }],
-  "notes": [
-    "Authorization Token Need to be passed via header"
-  ],
+  "header": {
+    "Authentication": "Token token=<token>",
+    "Content-Type": "application/json"
+  },
   "examples": [{
     "request": {
       "post": {
-        "name": "I was scared",
-        "content": "I am serious, I was really scared."
+        "title": "Ruby is awesome",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum a tellus sed finibus.",
+        "published": false
       }
     },
     "response": {
-      "success": true,
-      "message": "Post was successfully created",
-      "post": {
-        "id": 101
-      }
+      "suceess": true,
+      "message": "Successfully created"
     }
   }]
 }
 ```
 
 ```
-// docs/api/v1/posts/edit.json
+// docs/api/v1/posts/update.json
 {
   "published": true,
-  "name": "Edit Post",
-  "end_point": "/posts",
-  "http_method": "POST",
+  "name": "Update",
+  "sort_order": 2,
+  "end_point": "api/v1/posts/:id.json",
+  "http_method": "PUT|PATCH",
   "params": [{
-    "key": "post['name']",
+    "key": "post[title]",
     "required": true,
-    "type": "String"
+    "type": "String",
+    "description": "Title of the post",
+    "validations": ["Should be less than or equal to 40 characters"]
   }, {
-    "key": "post['content']",
-    "required": false,
-    "type": "String"
+    "key": "post[content]",
+    "required": true,
+    "type": "String",
+    "description": "Content/Body of the post",
+    "validations": ["Should be less than or equal to 300 characters"]
+  }, {
+    "key": "post[publsihed]",
+    "required": true,
+    "type": "Boolean",
+    "description": "Published status of the post"
   }],
+  "header": {
+    "Authentication": "Token token=<token>",
+    "Content-Type": "application/json"
+  },
   "examples": [{
     "request": {
       "post": {
-        "name": "I was scared",
-        "content": "I am serious, I was really scared."
+        "title": "Ruby is awesome",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum a tellus sed finibus.",
+        "published": false
       }
     },
     "response": {
-      "success": true,
-      "message": "Post was successfully created",
-      "post": {
-        "id": 101
-      }
+      "suceess": true,
+      "message": "Successfully updated"
     }
   }]
 }
@@ -146,32 +165,18 @@ will create the following files with sample content
 //docs/api/v1/posts/delete.json
 {
   "published": true,
-  "sort_order": 3,
-  "name": "Delete Post",
-  "end_point": "/posts",
-  "http_method": "POST",
-  "params": [{
-    "key": "post['name']",
-    "required": true,
-    "type": "String"
-  }, {
-    "key": "post['content']",
-    "required": false,
-    "type": "String"
-  }],
+  "name": "Destroy Post",
+  "sort_order": 6,
+  "end_point": "api/v1/posts/:id.json",
+  "http_method": "DELETE",
+  "header": {
+    "Authentication": "Token token=<token>",
+    "Content-Type": "application/json"
+  },
   "examples": [{
-    "request": {
-      "post": {
-        "name": "I was scared",
-        "content": "I am serious, I was really scared."
-      }
-    },
     "response": {
-      "success": true,
-      "message": "Post was successfully created",
-      "post": {
-        "id": 101
-      }
+      "suceess": true,
+      "message": "Successfully destroyed"
     }
   }]
 }
@@ -184,6 +189,7 @@ will create the following files with sample content
 | --- | --- | --- | --- |
 | `published` | Set this to false if you do not want to list this api | `true` | -- |
 | `name` | Name of the api | --- | --- |
+| `sort_order` | Order of the api to be listed | --- | --- |
 | `end_point` | --- | --- | `"end_point": "/posts"` |
 | `http_method` | The HTTP method of the API | --- | `"http_method": "GET"` |
 | `params` | Parameters to be used | --- | `"params: [{ "key": "post['name']", "required": true, "type": "String", "notes": ["Name or title of the post"], "validations": ["should be less than or equal to 150 characters"] }]"` |
