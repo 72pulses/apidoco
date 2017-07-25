@@ -7,6 +7,8 @@ Easy documentation of REST APIs - [Demo](https://apidoco-demo.herokuapp.com/docs
 
 ![screeshot 1](https://github.com/72pulses/apidoco/blob/master/images/1.jpg?raw=true)
 
+![screeshot 2](https://github.com/72pulses/apidoco/blob/master/images/2.jpg?raw=true)
+
 
 ## Installation
 Add this line to your application's Gemfile:
