@@ -1,7 +1,8 @@
 <div ng-controller="DocumentationController"
-  ng-init="jsonItem = <%= @data.to_json %>;
+  ng-init="data = <%= @data.to_json %>;
            documentationVersions = <%= documentation_versions(@vp).to_json %>;
-           currentVersion = '<%= @documentation.version %>';">
+           currentVersion = '<%= @documentation.version %>';
+           documentationArray = <%= build_documentation_array(@data[:apis]).to_json %>;">
   <!-- Sidebar -->
   <%= render partial: "side_bar" %>
   <!-- Page Content -->
@@ -17,92 +18,135 @@
             </div>
           </div><br />
 
-          <div ng-if="jsonItem.base_url" class="row">
+          <div ng-if="data.base_url" class="row">
             <div class="col-lg-12 text_wheat">
               <strong>BASE URL</strong>
-              {{ jsonItem.base_url }}
+              {{ data.base_url }}
             </div>
           </div><br />
 
-          <div class="row api_details" ng-repeat="x in jsonItem.apis | filter: searchKeyword" id="api_{{$index}}">
+          <div class="row api_details" ng-repeat="x in documentationArray | filter: searchKeyword" id="{{x.id}}">
             <div class="col-lg-12">
-              <h4>{{x.name}}</h4>
-              <div class="row mt-10">
-                <div class="col-lg-2 text-right">End Point:</div>
-                <div class="col-lg-5">
-                  <div class="input-group">
-                    <input type="text" readonly class="form-control" value="{{x.end_point}}">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button" ngclipboard data-clipboard-text="{{x.end_point}}">Copy</button>
-                    </span>
+              <ol class="breadcrumb">
+                <li ng-repeat="p in x.parents">{{p}}</li>
+              </ol>
+              <h2 class="section-title">{{x.name}}</h4>
+
+              <p ng-if="x.description">{{x.description}}</p>
+
+              <div class="section-block">
+                <h3 class="block-title">Request</h5>
+                <div class="row">
+                  <div class="col-sm-8">
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                        <button class="btn btn-success" type="button"><b>{{x.http_method}}</b></button>
+                      </span>
+                      <input type="text" readonly class="form-control" value="{{x.end_point}}">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <button class="btn btn-default btn-sm mt-2" type="button" ngclipboard data-clipboard-text="{{x.end_point}}">Copy</button>
                   </div>
                 </div>
               </div>
 
-              <div class="row mt-10">
-                <div class="col-lg-2 text-right">HTTP Method:</div>
-                <div class="col-lg-10">{{x.http_method}}</div>
-              </div>
-
-              <div class="row mt-10" ng-if="x.header">
-                <div class="col-lg-2 text-right">Headers:</div>
-                <div class="col-lg-10">
-                  <p ng-repeat="(key, value) in x.header">
-                    <code>{{ key }}:
-                      <span>
-                        {{ value }}
-                      </span>
-                    </code>
-                  </p>
+              <div class="section-block" ng-if="x.header">
+                <h3 class="block-title">Headers</h5>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <td>Name</td>
+                        <td>Description</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="(key, value) in x.header">
+                        <td>
+                          <code>{{key}}</code>
+                        </td>
+                        <td>
+                          <code>{{value}}</code>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
 
-              <div class="row mt-10" ng-if="x.params && x.params.length > 0">
-                <div class="col-lg-2 text-right">Params:</div>
-                <div class="col-lg-10">
-                  <p ng-repeat="param in x.params">
-                    <code>{{param.key}}
-                      <span ng-if="param.required">
-                        #{{param.required ? 'required' : 'optional'}}</span>
-                      <span ng-if="param.type">type: {{param.type}}</span>
-                    </code>
-                  </p>
+              <div class="section-block" ng-if="x.params && x.params.length > 0">
+                <h3 class="block-title">Parameters</h5>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <td>Parameter Name</td>
+                        <td></td>
+                        <td>Data Type</td>
+                        <td>Description</td>
+                        <td></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="param in x.params">
+                        <td>
+                          <code>{{param.key}}</code>
+                        </td>
+                        <td>
+                          <button class="btn btn-xs btn-danger" ng-if="param.required">required</button>
+                          <button class="btn btn-xs btn-primary" ng-if="!param.required">optional</button>
+                        </td>
+                        <td>{{param.type}}</td>
+                        <td>{{param.description}}</td>
+                        <td>
+                          {{param.notes}}
+                          <p ng-if="param.validations">
+                            <b>Validations:</b><br>
+                            <span ng-repeat="validation in param.validations">{{validation}}<br></span>
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
 
-              <div class="row mt-10" ng-if="x.notes">
-                <div class="col-lg-2 text-right">Notes:</div>
-                <div class="col-lg-10">
-                  <p ng-repeat="note in x.notes">
-                    {{ note }}
-                  </p>
-                </div>
+              <div class="section-block" ng-if="x.notes">
+                <h3 class="block-title">Notes</h5>
+                <p ng-repeat="note in x.notes">
+                  {{ note }}
+                </p>
               </div>
 
-              <div class="row mt-10" ng-if="x.examples && x.examples.length > 0">
-                <div class="col-lg-2 text-right">Examples:</div>
-                <div class="col-lg-10">
-                  <div ng-repeat="example in x.examples">
-                    <div ng-if="example.request">
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">Request</h4>
+              <div class="section-block" ng-if="x.examples && x.examples.length > 0">
+                <h3 class="block-title">Examples</h5>
+                <div class="rows" ng-repeat="example in x.examples">
+                  <div class="col-sm-6" ng-if="example.request">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">Request</h4>
+                      </div>
+                      <div class="panel-body">
+                        <div class="btn-group pull-right" role="group">
+                          <button class="btn btn-default btn-sm" ng-click="viewRaw(example.request)">Raw</button>
+                          <button class="btn btn-default btn-sm" ngclipboard data-clipboard-text="{{example.request}}">Copy</button>
                         </div>
-                        <div class="panel-body">
-                          <button class="btn btn-default btn-sm pull-right" ngclipboard data-clipboard-text="{{example.request}}">Copy</button>
-                          <div jq-json-viewer data="example.request"></div>
-                        </div>
+                        <div jq-json-viewer data="example.request"></div>
                       </div>
                     </div>
-                    <div ng-if="example.response">
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">Response</h4>
+                  </div>
+                  <div class="col-sm-6" ng-if="example.response">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">Response</h4>
+                      </div>
+                      <div class="panel-body">
+                        <div class="btn-group pull-right" role="group">
+                          <button class="btn btn-default btn-sm" ng-click="viewRaw(example.response)">Raw</button>
+                          <button class="btn btn-default btn-sm" ngclipboard data-clipboard-text="{{example.response}}">Copy</button>
                         </div>
-                        <div class="panel-body">
-                          <button class="btn btn-default btn-sm pull-right" ngclipboard data-clipboard-text="{{example.response}}">Copy</button>
-                          <div jq-json-viewer data="example.response"></div>
-                        </div>
+                        <div jq-json-viewer data="example.response"></div>
                       </div>
                     </div>
                   </div>

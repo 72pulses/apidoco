@@ -69,11 +69,11 @@ class ApidocoGenerator < Rails::Generators::Base
     <<-FILE
 {
   "published": true,
-  "sort_order": 100,
   "name": "#{name}",
   "end_point": "#{resource}#{endpoint_with_method[:endpoint]}",
   "http_method": "#{endpoint_with_method[:method]}",
   "params": [],
+  "header": {},
   "examples": [{
     "request": {},
     "response": {}

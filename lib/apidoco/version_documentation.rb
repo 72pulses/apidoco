@@ -15,17 +15,15 @@ module Apidoco
       {
         name: name,
         base_url: '',
-        apis: resource_documentations.flat_map(&:as_json)
+        apis: documentations.flat_map(&:as_json)
       }
     end
 
-    def resource_documentations
-      resource_directories.map { |dir| ResourceDocumentation.new(dir) }
+    def documentations
+      documentation_directories.map { |dir| FolderParser.new(dir) }
     end
 
-    protected
-
-    def resource_directories
+    def documentation_directories
       directory.children.select(&:directory?)
     end
   end

@@ -9,6 +9,15 @@ angular.module('apiDocoApp')
     $window.location.href = version.path;
   };
 
+  $scope.viewRaw = function(data) {
+    var dataStingified = JSON.stringify(data, null, 2);
+    var x = window.open();
+
+    x.document.open();
+    x.document.write('<html><body><pre>' + dataStingified + '</pre></body></html>');
+    x.document.close();
+  };
+
   $scope.initMenuToggle = function() {
     $(document).ready(function () {
       $("#menu-toggle").click(function(e) {

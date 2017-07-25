@@ -16,7 +16,6 @@
 //= require apidoco/jquery.json-viewer
 //= require apidoco/bootstrap/bootstrap.min
 //= require apidoco/clipboard.min
-//= require apidoco/directives/angular_scroll.min
 //= require apidoco/directives/ngclipboard
 //= require apidoco/apidoco_app
 //= require apidoco/directives/jq_json_viewer
