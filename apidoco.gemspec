@@ -23,5 +23,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'generator_spec'
-  s.add_development_dependency 'capybara-webkit'
 end
