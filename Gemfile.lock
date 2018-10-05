@@ -56,6 +56,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-webkit (1.15.1)
+      capybara (>= 2.3, < 4.0)
+      json
     concurrent-ruby (1.0.5)
     crass (1.0.4)
     diff-lcs (1.2.5)
@@ -66,6 +69,7 @@ GEM
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (0.7.0)
+    json (2.1.0)
     loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -149,9 +153,10 @@ PLATFORMS
 DEPENDENCIES
   apidoco!
   capybara
+  capybara-webkit
   generator_spec
   rspec-rails
   sqlite3
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
