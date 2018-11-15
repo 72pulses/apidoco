@@ -35,6 +35,7 @@ Create a configuration file in initializers e.g. /config/initializers/apidoco.rb
 ```ruby
 Apidoco.auth_name = 'authentication_name'
 Apidoco.auth_password = 'authentication_password'
+Apidoco.app_name = 'your app name' # This will appear as the HTML title for api_doco pages
 ```
 
 ## Generators
