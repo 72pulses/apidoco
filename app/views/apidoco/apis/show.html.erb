@@ -150,6 +150,20 @@
                       </div>
                     </div>
                   </div>
+                  <div class="col-sm-6" ng-if="example.response_headers">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">Response Headers</h4>
+                      </div>
+                      <div class="panel-body">
+                        <div class="btn-group pull-right" role="group">
+                          <button class="btn btn-default btn-sm" ng-click="viewRaw(example.response_headers)">Raw</button>
+                          <button class="btn btn-default btn-sm" ngclipboard data-clipboard-text="{{example.response_headers}}">Copy</button>
+                        </div>
+                        <div jq-json-viewer data="example.response_headers"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
