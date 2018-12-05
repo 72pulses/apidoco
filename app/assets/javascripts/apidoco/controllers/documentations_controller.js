@@ -9,6 +9,10 @@ angular.module('apiDocoApp')
     $window.location.href = version.path;
   };
 
+  $scope.version_address = function () {
+    return $window.location.href.split('#')[0];
+  };
+
   $scope.viewRaw = function(data) {
     var dataStingified = JSON.stringify(data, null, 2);
     var x = window.open();
