@@ -2,7 +2,7 @@
 <script type="text/ng-template" id="documentationTree">
   <a href="#{{documentation.id}}">{{documentation.name}}</a>
   <ul ng-if="documentation.children">
-    <li ng-repeat="documentation in documentation.children" ng-include="'documentationTree'">
+    <li ng-repeat="documentation in documentation.children | filter: searchKeyword" ng-include="'documentationTree'">
     </li>
   </ul>
 </script>
