@@ -21,7 +21,7 @@ module Apidoco
     end
 
     def children
-      directory.children.map do |child|
+      directory.children.sort.map do |child|
         hierrarchy = parents + [basename]
         if child.directory?
           Apidoco::FolderParser.new(child, parents: hierrarchy)
