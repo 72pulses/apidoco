@@ -9,7 +9,7 @@ angular.module('apiDocoApp')
     $window.location.href = version.path;
   };
 
-  $scope.version_address = function () {
+  $scope.versionAddress = function () {
     return $window.location.href.split('#')[0];
   };
 

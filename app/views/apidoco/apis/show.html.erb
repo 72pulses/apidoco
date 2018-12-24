@@ -31,7 +31,7 @@
                 <li ng-repeat="p in x.parents">{{p}}</li>
               </ol>
               <h2 class="section-title">{{x.name}}
-                <button class="btn btn-default btn-xs mt-1 pull-right" type="button" ngclipboard data-clipboard-text="{{version_address()}}#{{x.id}}">Copy permalink</button>
+                <button class="btn btn-default btn-xs mt-1 pull-right" type="button" ngclipboard data-clipboard-text="{{versionAddress()}}#{{x.id}}">Copy permalink</button>
               </h2>
 
               <p ng-if="x.description">{{x.description}}</p>
