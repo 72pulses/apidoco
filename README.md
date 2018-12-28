@@ -102,12 +102,19 @@ will create the following files with sample content
     "Content-Type": "application/json"
   },
   "examples": [{
+    "request_headers": {
+      "Authentication": "Token token=<token>",
+      "Content-Type": "application/json"
+    },
     "request": {
       "post": {
         "title": "Ruby is awesome",
         "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum a tellus sed finibus.",
         "published": false
       }
+    },
+    "response_headers": {
+      "Authentication": "Token token=<token>"
     },
     "response": {
       "suceess": true,
@@ -148,12 +155,19 @@ will create the following files with sample content
     "Content-Type": "application/json"
   },
   "examples": [{
+    "request_headers": {
+      "Authentication": "Token token=<token>",
+      "Content-Type": "application/json"
+    },
     "request": {
       "post": {
         "title": "Ruby is awesome",
         "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum a tellus sed finibus.",
         "published": false
       }
+    },
+    "response_headers": {
+      "Content-Type": "application/json"
     },
     "response": {
       "suceess": true,
@@ -177,6 +191,10 @@ will create the following files with sample content
     "Content-Type": "application/json"
   },
   "examples": [{
+    "request_headers": {
+      "Authentication": "Token token=<token>",
+      "Content-Type": "application/json"
+    },
     "response": {
       "suceess": true,
       "message": "Successfully destroyed"
@@ -197,7 +215,7 @@ will create the following files with sample content
 | `http_method` | The HTTP method of the API | --- | `"http_method": "GET"` |
 | `params` | Parameters to be used | --- | `"params: [{ "key": "post['name']", "required": true, "type": "String", "notes": ["Name or title of the post"], "validations": ["should be less than or equal to 150 characters"] }]"` |
 | `header` | headers to be used | --- | `"header: { "Authorization": "Token token=<token>", "Content-type": 'application/json' }"` |
-| `examples` | Array of sample requests and responses | --- | `[{ "request": { "post": { "name": "I was scared" } } }, "response": { "message": "Post was successfully created", "id": 101 } }]`
+| `examples` | Array of sample requests, responses and their headers | --- | `[{ "request_headers": { "Authorization": "Token token=<token>", "Content-type": 'application/json' }, "request": { "post": { "name": "I was scared" } } }, "response_headers": { "Content-type": 'application/json' }, "response": { "message": "Post was successfully created", "id": 101 } }]`
 
 
 ## License
