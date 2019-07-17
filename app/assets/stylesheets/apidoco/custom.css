@@ -40,3 +40,23 @@ h3 {
   margin-top: 0;
 }
 
+.container-flex {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.container-flex .description {
+  flex: 0 0 65%;
+}
+
+.container-flex .examples {
+  position: absolute;
+  left: 70%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
+
+
