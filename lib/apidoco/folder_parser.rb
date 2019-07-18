@@ -36,7 +36,7 @@ module Apidoco
     end
 
     def sort_order
-      999
+      basename
     end
   end
 end
