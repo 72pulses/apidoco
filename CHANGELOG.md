@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- CHANGELOG.md
+- CHANGELOG.md https://github.com/72pulses/apidoco/pull/53
 
 ### Changed
 - Sort sub-directories alphabetically https://github.com/72pulses/apidoco/pull/47
