@@ -1,4 +1,4 @@
 require 'capybara/rspec'
-require 'capybara-webkit'
+require 'capybara/apparition'
 
-Capybara.javascript_driver = :webkit
+Capybara.javascript_driver = :apparition
