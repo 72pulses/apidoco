@@ -49,12 +49,17 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.5.2)
+    addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     angularjs-rails (1.6.8)
+    apparition (0.1.0)
+      backports
+      capybara (~> 3.12, < 4)
+      websocket-driver (>= 0.6.5)
     arel (9.0.0)
+    backports (3.15.0)
     builder (3.2.3)
-    capybara (3.12.0)
+    capybara (3.15.1)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -62,9 +67,6 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.2)
       xpath (~> 3.2)
-    capybara-webkit (1.15.1)
-      capybara (>= 2.3, < 4.0)
-      json
     concurrent-ruby (1.1.4)
     crass (1.0.4)
     diff-lcs (1.3)
@@ -76,7 +78,6 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.3.0)
       concurrent-ruby (~> 1.0)
-    json (2.1.0)
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -86,15 +87,15 @@ GEM
       mimemagic (~> 0.3.2)
     method_source (0.9.2)
     mimemagic (0.3.3)
-    mini_mime (1.0.1)
+    mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     nio4r (2.3.1)
-    nokogiri (1.9.1)
+    nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
-    public_suffix (3.0.3)
+    public_suffix (3.1.1)
     puma (3.12.0)
-    rack (2.0.6)
+    rack (2.0.7)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.2)
@@ -122,7 +123,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
     rake (12.3.2)
-    regexp_parser (1.3.0)
+    regexp_parser (1.6.0)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.2)
@@ -163,8 +164,8 @@ PLATFORMS
 
 DEPENDENCIES
   apidoco!
+  apparition
   capybara
-  capybara-webkit
   generator_spec
   puma
   rspec-rails

@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = 'Document Rest APIs.'
   s.license     = 'MIT'
 
-  s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
+  s.files = Dir['{app,config,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['spec/**/*']
 
   s.add_dependency 'rails', '>= 4.0.0'
@@ -23,6 +23,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'generator_spec'
-  s.add_development_dependency 'capybara-webkit'
+  s.add_development_dependency 'apparition'
   s.add_development_dependency 'puma'
 end
