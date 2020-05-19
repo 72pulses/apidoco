@@ -87,7 +87,7 @@
                             <td></td>
                             <td>Data Type</td>
                             <td>Description</td>
-                            <td></td>
+                            <td>Notes</td>
                           </tr>
                         </thead>
                         <tbody>
@@ -107,6 +107,39 @@
                                 <b>Validations:</b><br>
                                 <span ng-repeat="validation in param.validations">{{validation}}<br></span>
                               </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="section-block" ng-if="x.response_params && x.response_params.length > 0">
+                    <h3 class="block-title">Response Parameters</h5>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <td>Parameter Name</td>
+                            <td></td>
+                            <td>Data Type</td>
+                            <td>Description</td>
+                            <td>Notes</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr ng-repeat="param in x.response_params">
+                            <td>
+                              <code>{{param.key}}</code>
+                            </td>
+                            <td>
+                              <button class="btn btn-xs btn-danger" ng-if="param.required">required</button>
+                              <button class="btn btn-xs btn-primary" ng-if="!param.required">optional</button>
+                            </td>
+                            <td>{{param.type}}</td>
+                            <td>{{param.description}}</td>
+                            <td>
+                              {{param.notes}}
                             </td>
                           </tr>
                         </tbody>
