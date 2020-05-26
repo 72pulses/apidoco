@@ -4,7 +4,7 @@ module Apidoco
     attr_accessor :base_path
 
     def initialize
-      self.base_path = Rails.root.join('docs')
+      self.base_path = Rails.root.join(Apidoco.base_path)
     end
 
     def documentations
