@@ -86,8 +86,8 @@
                             <td>Parameter Name</td>
                             <td></td>
                             <td>Data Type</td>
-                            <td>Description</td>
-                            <td>Notes</td>
+                            <td style='width: 30%;'>Description</td>
+                            <td style='width: 30%;'>Notes</td>
                           </tr>
                         </thead>
                         <tbody>
@@ -114,17 +114,18 @@
                     </div>
                   </div>
 
-                  <div class="section-block" ng-if="x.response_params && x.response_params.length > 0">
+                  <div class="section-block">
                     <h3 class="block-title">Response Properties</h5>
+                    <strong>Code: {{x.return_code}}</strong>
                     <div class="table-responsive">
-                      <table class="table">
+                      <table class="table" ng-if="x.response_params && x.response_params.length > 0">
                         <thead>
                           <tr>
                             <td>Property Name</td>
                             <td></td>
                             <td>Data Type</td>
-                            <td>Description</td>
-                            <td>Notes</td>
+                            <td style='width: 30%;'>Description</td>
+                            <td style='width: 30%;'>Notes</td>
                           </tr>
                         </thead>
                         <tbody>
