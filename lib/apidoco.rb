@@ -9,7 +9,8 @@ require 'apidoco/file_parser'
 APIDOCO_TITLE = 'ApiDoco'
 
 module Apidoco
-  mattr_accessor :app_name, :auth_name, :auth_password
+  mattr_accessor :app_name, :auth_name, :auth_password, :base_path
 
   self.app_name = APIDOCO_TITLE
+  self.base_path = 'docs/api'
 end
