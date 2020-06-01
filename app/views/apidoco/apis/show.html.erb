@@ -86,8 +86,8 @@
                             <td>Parameter Name</td>
                             <td></td>
                             <td>Data Type</td>
-                            <td>Description</td>
-                            <td></td>
+                            <td style='width: 30%;'>Description</td>
+                            <td style='width: 30%;'>Notes</td>
                           </tr>
                         </thead>
                         <tbody>
@@ -107,6 +107,39 @@
                                 <b>Validations:</b><br>
                                 <span ng-repeat="validation in param.validations">{{validation}}<br></span>
                               </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="section-block">
+                    <h3 class="block-title">Response Properties</h5>
+                    <strong>Code: {{x.return_code}}</strong>
+                    <div class="table-responsive">
+                      <table class="table" ng-if="x.response_params && x.response_params.length > 0">
+                        <thead>
+                          <tr>
+                            <td>Property Name</td>
+                            <td></td>
+                            <td>Data Type</td>
+                            <td style='width: 30%;'>Description</td>
+                            <td style='width: 30%;'>Notes</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr ng-repeat="param in x.response_params">
+                            <td>
+                              <code>{{param.key}}</code>
+                            </td>
+                            <td>
+                              <button class="btn btn-xs btn-danger" ng-if="param.required">required</button>
+                              <button class="btn btn-xs btn-primary" ng-if="!param.required">optional</button>
+                            </td>
+                            <td>{{param.type}}</td>
+                            <td>{{param.description}}</td>
+                            <td>
+                              {{param.notes}}
                             </td>
                           </tr>
                         </tbody>
