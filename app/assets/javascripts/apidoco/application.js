@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require angular
+//= require angular-sanitize
 //
 //= require apidoco/jquery.min
 //= require apidoco/jquery.json-viewer

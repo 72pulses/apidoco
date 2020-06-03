@@ -33,7 +33,10 @@
               <h2 class="section-title">{{x.name}}
                 <button class="btn btn-default btn-xs mt-1 pull-right" type="button" ngclipboard data-clipboard-text="{{versionAddress()}}#{{x.id}}">Copy permalink</button>
               </h2>
-              <div class="container-flex">
+              <div ng-if="x.markdown" class='container-flex'>
+                <div class='description' ng-bind-html="x.description"></div>
+              </div>
+              <div ng-if="!x.markdown" class="container-flex"><!-- Beginning of individual doc block -->
                 <div class="description">
                   <p ng-if="x.description">{{x.description}}</p>
                   <div class="section-block">
@@ -156,7 +159,7 @@
                 <div class="examples">
                   <%= render partial: "examples" %>
                 </div>
-              </div>
+              </div> <!-- End of visible doc stuff -->
             </div>
           </div>
         </div>

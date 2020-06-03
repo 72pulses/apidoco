@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apiDocoApp')
+angular.module('apiDocoApp', ['ngSanitize'])
 .controller('DocumentationController', ['$scope', '$window', function ($scope, $window) {
   $scope.navigateToCurrentVersion = function (versionName) {
     var version = $scope.documentationVersions.filter(function(v) {
