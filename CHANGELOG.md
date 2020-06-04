@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added auto-generated CircleCI 2.0 config file https://github.com/72pulses/apidoco/pull/56
 
 ### Changed
-- Bumped dependend gems - Capybara, Nokogiri, Puma, Rack and Loofah
+- Bumped dependent gems - Capybara, Nokogiri, Puma, Rack and Loofah
 - Using apparition instead of webkit https://github.com/72pulses/apidoco/pull/55
 
 ### Fixed
