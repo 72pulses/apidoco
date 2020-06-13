@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir['spec/**/*']
 
   s.add_runtime_dependency 'angularjs-rails', '~> 1.6', '>= 1.6.8'
-  s.add_runtime_dependency 'rails', '>= 4.0.0'
+  s.add_runtime_dependency 'rails', '~> 5.2.4.3', '>= 5.0.0'
 
   s.add_development_dependency 'apparition', '~> 0.1', '>= 0.1.0'
   s.add_development_dependency 'capybara', '~> 3.31', '>= 3.31.0'
