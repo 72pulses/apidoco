@@ -59,4 +59,15 @@ h3 {
   overflow: auto;
 }
 
+.built-with {
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  padding: 10px;
+  font-size: 12px;
+}
+
+.built-with a, .built-with a:hover {
+  color: white;
+}
 
