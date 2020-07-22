@@ -13,7 +13,7 @@ module Apidoco
     end
 
     def content
-      JSON.parse(File.read(file))
+      @content ||= JSON.parse(File.read(file))
     end
 
     def id
