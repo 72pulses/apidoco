@@ -4,6 +4,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] -
+
+### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.6.0] - 2020-07-10
+
+### Added
+ - Using app name as the sidebar title https://github.com/72pulses/apidoco/pull/80
+ - Adding built-with https://github.com/72pulses/apidoco/pull/81
+ - Added more test coverage https://github.com/72pulses/apidoco/pull/85
+ - Added Github Action: Test Coverage https://github.com/72pulses/apidoco/pull/89
+
+### Changed
+ - (Breaking Change) Setting rails 5 as min requirement. Make sure your rails app version is >= 5.0.0 https://github.com/72pulses/apidoco/pull/78
+ - Improved gitignore - fixed untracked files https://github.com/72pulses/apidoco/pull/79
+
 ## [1.5.6] - 2020-06-10
 
 ### Changed
