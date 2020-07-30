@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    apidoco (1.5.6)
+    apidoco (1.6.0)
       angularjs-rails (~> 1.6, >= 1.6.8)
       rails (>= 5.0.0)
 
