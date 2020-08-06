@@ -5,6 +5,7 @@ require 'apidoco/version_parser'
 require 'apidoco/version_documentation'
 require 'apidoco/folder_parser'
 require 'apidoco/file_parser'
+require 'apidoco/file_parse_error'
 
 APIDOCO_TITLE = 'ApiDoco'
 

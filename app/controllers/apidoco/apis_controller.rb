@@ -14,6 +14,8 @@ module Apidoco
     def show
       @documentation = @vp.documentation(params[:id])
       @data = @documentation.as_json
+    rescue Apidoco::FileParseError => e
+      render plain: e.info
     end
 
     private
