@@ -15,6 +15,21 @@ describe Apidoco::FileParser do
     file.unlink
   end
 
+  describe '#content' do
+    subject(:content) { file_parser.content }
+
+    context 'when parsing an invalid json file' do
+      let(:file) do
+        Tempfile.new.tap do |f|
+          f.write('sdsd')
+          f.rewind
+        end
+      end
+
+      it { expect { content }.to raise_error(Apidoco::FileParseError) }
+    end
+  end
+
   describe '#id' do
     subject(:id) { file_parser.id }
 

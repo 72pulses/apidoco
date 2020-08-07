@@ -14,6 +14,8 @@ module Apidoco
 
     def content
       @content ||= JSON.parse(File.read(file))
+    rescue JSON::ParserError => e
+      raise Apidoco::FileParseError.new file, e.message
     end
 
     def id
