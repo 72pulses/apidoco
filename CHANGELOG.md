@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 ### Fixed
+ - Better error handling when parsing files [#91](https://github.com/72pulses/apidoco/pull/91)
 
 ### Security
 
