@@ -1,3 +1,5 @@
+require 'apidoco'
+
 #
 # ApidocoGenerator
 #
@@ -11,7 +13,7 @@ class ApidocoGenerator < Rails::Generators::Base
     resource_actions = actions(args[1..-1])
 
     resource_actions.each do |action|
-      create_file "#{Rails.root}/docs/#{file_name(resource, action)}",
+      create_file "#{Rails.root}/#{Apidoco.base_path}/#{file_name(resource, action)}",
                   file_content(resource, action)
     end
   end
