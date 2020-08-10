@@ -65,7 +65,7 @@ rails g apidoco resource
 ```
 For Example:
 ```
-rails g apidoco api/v1/posts
+rails g apidoco v1/posts
 ```
 will create the following files by default with sample content
 - docs/api/v1/posts/show.json
@@ -74,11 +74,13 @@ will create the following files by default with sample content
 - docs/api/v1/posts/destroy.json
 - docs/api/v1/posts/index.json
 
+The root path will be based on the `base_path` config.
+
 If you need to create Api documention file for actions other than default
 crud actions, you need to specify the actions for which the files need to be generated
 
 ```ruby
-rails g apidoco api/v1/posts download upload
+rails g apidoco v1/posts download upload
 ```
 will create the following files with sample content
 - docs/api/v1/posts/download.json
