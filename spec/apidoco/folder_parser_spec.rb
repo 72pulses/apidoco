@@ -8,9 +8,7 @@ describe Apidoco::FolderParser do
       f.rewind
     end
   end
-  let(:directory) do
-    double(basename: 'users', children: [file])
-  end
+  let(:directory) { double(basename: 'users', children: [file]) }
   let(:folder_parser) { described_class.new(directory, parents: []) }
 
   after do
@@ -32,7 +30,34 @@ describe Apidoco::FolderParser do
     end
 
     describe 'children' do
-      it { expect(as_json[:children].first).to include(id: 'users-createuser', 'name' => 'Create User') }
+      let(:sub_directory1) { double(basename: 'roles', children: [], directory?: true) }
+      let(:sub_directory2) { double(basename: 'departments', children: [], directory?: true) }
+      let(:file1) { file }
+      let(:file2) do
+        Tempfile.new.tap do |f|
+          f.write({ name: 'Delete User' }.to_json)
+          f.rewind
+        end
+      end
+
+      before { allow(file2).to receive(:directory?).and_return(false) }
+
+      after do
+        file2.close
+        file2.unlink
+      end
+
+      let(:directory) do
+        double(basename: 'users', children: [file1, file2, sub_directory1, sub_directory2])
+      end
+
+      it 'sorts the files and folders based on the sort order' do
+        expect(as_json).to include(name: 'Users')
+        expect(as_json[:children][0][:name]).to eq('Departments')
+        expect(as_json[:children][1][:name]).to eq('Roles')
+        expect(as_json[:children][2]['name']).to eq('Create User')
+        expect(as_json[:children][3]['name']).to eq('Delete User')
+      end
     end
   end
 
