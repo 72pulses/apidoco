@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] -
+## [Unreleased] - yyyy-mm-dd
 
 ### Added
 
@@ -15,10 +15,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 ### Fixed
+
+### Security
+
+## [1.6.1] - 2020-08-19
+
+### Added
+ - [Test coverage for sorting fix](https://github.com/72pulses/apidoco/commit/ad291ceadcb5bc1f2cf481bcf0277a915ee9cebf)
+
+### Removed
+ - [Removed circle ci config in favor of github action](https://github.com/72pulses/apidoco/commit/e433056658605ebf9c2325c3d483beaa4b9f5a7b)
+
+### Fixed
  - Better error handling when parsing files [#91](https://github.com/72pulses/apidoco/pull/91)
  - Update genrator to use the `base_path` config [#92](https://github.com/72pulses/apidoco/pull/92)
 
 ### Security
+ - Bump rack from 2.2.2 to 2.2.3 [#83](https://github.com/72pulses/apidoco/pull/83)
 
 ## [1.6.0] - 2020-07-10
 
