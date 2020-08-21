@@ -9,3 +9,5 @@ spec/dummy/tmp/
 spec/dummy/docs
 
 *.gem
+
+node_modules/

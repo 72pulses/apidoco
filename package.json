@@ -1,0 +1,25 @@
+{
+  "name": "apidoco",
+  "version": "1.6.1",
+  "description": "Document APIs",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/72pulses/apidoco.git"
+  },
+  "author": "Al Ameen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/72pulses/apidoco/issues"
+  },
+  "homepage": "https://github.com/72pulses/apidoco#readme",
+  "dependencies": {
+    "angular": "^1.8.0"
+  }
+}
