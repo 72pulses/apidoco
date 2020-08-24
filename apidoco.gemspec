@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'angularjs-rails', '~> 1.6', '>= 1.6.8'
   s.add_runtime_dependency 'rails', '>= 5.0.0' # Do not specify the rails version
+  s.add_development_dependency 'bootstrap', '~> 4.2.1'
 
   s.add_development_dependency 'apparition', '~> 0.1', '>= 0.1.0'
   s.add_development_dependency 'capybara', '~> 3.31', '>= 3.31.0'
