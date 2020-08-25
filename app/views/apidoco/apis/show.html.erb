@@ -10,13 +10,13 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
-          <!-- <div class="row">
+          <div class="row">
             <div class="col-lg-2">
               <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
                 <img src="data:image/false;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAGFJREFUOI3t0kEOQDAYROGP4EicFTdyJAQLFcKu3Uh4STO7PzN55XNkIUvUIWOYMIQEHdbE10IeDq6Rza4snJMLNOInj/bJc3qvG0fDyi6liLzzkNJ7u5TUf/hL+ZSU97MBesZLbzOP1bcAAAAASUVORK5CYII=">
               </a>
             </div>
-          </div><br /> -->
+          </div><br />
 
           <div ng-if="data.base_url" class="row">
             <div class="col-lg-12 text_wheat">
@@ -28,10 +28,10 @@
           <div class="row api_details" ng-repeat="x in documentationArray | filter: searchKeyword" id="{{x.id}}">
             <div class="col-lg-12">
               <ol class="breadcrumb">
-                <li ng-repeat="p in x.parents">{{p}}</li>
+                <li class="breadcrumb-item" ng-repeat="p in x.parents">{{p}}</li>
               </ol>
               <h2 class="section-title">{{x.name}}
-                <button class="btn btn-default btn-xs mt-1 pull-right" type="button" ngclipboard data-clipboard-text="{{versionAddress()}}#{{x.id}}">Copy permalink</button>
+                <button class="btn btn-light btn-sm mt-1 pull-right" type="button" ngclipboard data-clipboard-text="{{versionAddress()}}#{{x.id}}">Copy permalink</button>
               </h2>
               <div class="container-flex">
                 <div class="description">
@@ -48,7 +48,8 @@
                         </div>
                       </div>
                       <div class="col-sm-4">
-                        <button class="btn btn-default btn-sm mt-2" type="button" ngclipboard data-clipboard-text="{{x.end_point}}">Copy</button>
+                        <button class="btn btn-light btn-sm mt-2" type="button" ngclipboard data-clipboard-text="{{x.end_point}}">Copy</button>
+                        <copy-button></copy-button>
                       </div>
                     </div>
                   </div>
