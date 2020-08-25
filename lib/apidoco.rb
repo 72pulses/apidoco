@@ -1,4 +1,5 @@
 require 'angularjs-rails'
+require 'bootstrap'
 
 require 'apidoco/engine'
 require 'apidoco/version_parser'
