@@ -60,7 +60,8 @@
                   <!-- Description -->
                   <p ng-if="x.description">{{x.description}}</p>
 
-                  <div class="card" ng-if="x.header">
+                  <!-- Headers -->
+                  <div class="section-block card" ng-if="x.header">
                     <div class="card-body">
                       <h5 class="card-title">Headers</h5>
                       <div ng-repeat="(key, value) in x.header" class="d-flex row mb-1">
@@ -76,40 +77,27 @@
                     </div>
                   </div>
 
-                  <div class="section-block" ng-if="x.params && x.params.length > 0">
-                    <h3 class="block-title">Parameters</h5>
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <td>Parameter Name</td>
-                            <td></td>
-                            <td>Data Type</td>
-                            <td>Description</td>
-                            <td></td>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr ng-repeat="param in x.params">
-                            <td>
-                              <code>{{param.key}}</code>
-                            </td>
-                            <td>
-                              <button class="btn btn-xs btn-danger" ng-if="param.required">required</button>
-                              <button class="btn btn-xs btn-primary" ng-if="!param.required">optional</button>
-                            </td>
-                            <td>{{param.type}}</td>
-                            <td>{{param.description}}</td>
-                            <td>
-                              {{param.notes}}
-                              <p ng-if="param.validations">
-                                <b>Validations:</b><br>
-                                <span ng-repeat="validation in param.validations">{{validation}}<br></span>
-                              </p>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                  <!-- Parameters -->
+                  <div class="card section-block" ng-if="x.params && x.params.length > 0">
+                    <div class="card-body">
+                      <h5 class="card-title">Query Parameters</h5>
+                      <div ng-repeat="param in x.params" class="row mb-2">
+                        <div class="col-2 flex-column">
+                          <div>{{param.key}}</div>
+                          <div>
+                            <small class="text-danger font-weight-lighter text-uppercase" ng-if="param.required">REQUIRED</small>
+                            <small class="text-info font-weight-lighter text-uppercase" ng-if="!param.required">OPTIONAL</small>
+                          </div>
+                        </div>
+                        <div class="col-1"><span class="badge badge-pill badge-light">{{param.type}}</span></div>
+                        <div class="ml-1 text-muted col-3" ng-if="param.description">{{param.description}}</div>
+                        <div class="ml-1 text-muted col-5">
+                          {{param.notes}}
+                          <p ng-if="param.validations">
+                            <small ng-repeat="validation in param.validations">{{validation}}<br></small>
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
