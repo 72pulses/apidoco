@@ -27,53 +27,52 @@
 
           <div class="row api_details" ng-repeat="x in documentationArray | filter: searchKeyword" id="{{x.id}}">
             <div class="col-lg-12">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item" ng-repeat="p in x.parents">{{p}}</li>
-              </ol>
-              <h2 class="section-title">{{x.name}}
-                <button class="btn btn-secondary btn-sm mt-1 pull-right" type="button" ngclipboard data-clipboard-text="{{versionAddress()}}#{{x.id}}">Copy permalink</button>
-              </h2>
+              <!-- Breadcrump -->
+              <small>
+                <ol class="breadcrumb bg-light p-2 text-black-50">
+                  <li class="breadcrumb-item" ng-repeat="p in x.parents">{{p}}</li>
+                </ol>
+              </small>
+
+              <!-- Title -->
+              <div class="d-flex align-items-center">
+                <button class="btn btn-outline-success btn-sm" type="button"><b>{{x.http_method}}</b></button>
+                <div class="ml-2 font-weight-bolder">{{x.name}}</div>
+                <button class="btn btn-light btn-sm ml-2" type="button" ngclipboard data-clipboard-text="{{versionAddress()}}#{{x.id}}">
+                  <link-icon />
+                </button>
+              </div>
+
               <div class="container-flex">
                 <div class="description">
-                  <p ng-if="x.description">{{x.description}}</p>
+                  <!-- End point -->
                   <div class="section-block">
-                    <h3 class="block-title">Request</h5>
                     <div class="row">
-                      <div class="col-sm-8">
-                        <div class="input-group">
-                          <span class="input-group-btn">
-                            <button class="btn btn-success" type="button"><b>{{x.http_method}}</b></button>
-                          </span>
-                          <input type="text" readonly class="form-control" value="{{x.end_point}}">
-                        </div>
-                      </div>
-                      <div class="col-sm-4">
-                        <button class="btn btn-secondary btn-sm mt-2" type="button" ngclipboard data-clipboard-text="{{x.end_point}}">Copy</button>
+                      <div class="col-sm-8 d-flex">
+                        <input type="text" readonly class="form-control bg-light text-muted" value="{{x.end_point}}">
+                        <button class="btn btn-light btn-sm ml-2" type="button" ngclipboard data-clipboard-text="{{x.end_point}}">
+                          <copy-icon />
+                        </button>
                       </div>
                     </div>
                   </div>
 
-                  <div class="section-block" ng-if="x.header">
-                    <h3 class="block-title">Headers</h5>
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <td>Name</td>
-                            <td>Description</td>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr ng-repeat="(key, value) in x.header">
-                            <td>
-                              <code>{{key}}</code>
-                            </td>
-                            <td>
-                              <code>{{value}}</code>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                  <!-- Description -->
+                  <p ng-if="x.description">{{x.description}}</p>
+
+                  <div class="card" ng-if="x.header">
+                    <div class="card-body">
+                      <h5 class="card-title">Headers</h5>
+                      <div ng-repeat="(key, value) in x.header" class="d-flex row mb-1">
+                        <div class="d-flex col-2">
+                          {{key}}
+                          <!-- TODO: Implement required/optional -->
+                        </div>
+                        <div class="col-1"><span class="badge badge-pill badge-light">string</span></div>
+                        <div class="ml-1 text-muted col-3">
+                          {{value}}
+                        </div>
+                      </div>
                     </div>
                   </div>
 

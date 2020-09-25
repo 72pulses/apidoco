@@ -18,5 +18,10 @@
 //= require apidoco/clipboard.min
 //= require apidoco/directives/ngclipboard
 //= require apidoco/apidoco_app
+//
+//  Icons
+//= require apidoco/icons/linkIcon
+//= require apidoco/icons/copyIcon
+//
 //= require apidoco/directives/jq_json_viewer
 //= require apidoco/controllers/documentations_controller
