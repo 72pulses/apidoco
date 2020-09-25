@@ -26,5 +26,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'pry-byebug', '~> 3.9.0', '>= 3.9.0'
   s.add_development_dependency 'puma', '~> 4.3', '>= 4.3.3'
   s.add_development_dependency 'rspec-rails', '~> 4.0', '>= 4.0.0'
+  s.add_development_dependency 'sass-rails', '>= 5.0.0'
   s.add_development_dependency 'sqlite3', '~> 1.3', '>= 1.3.13'
 end
