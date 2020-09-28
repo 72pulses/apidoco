@@ -23,5 +23,9 @@
 //= require apidoco/icons/linkIcon
 //= require apidoco/icons/copyIcon
 //
+//= Components
+//= require apidoco/components/tabbed/ad-tabbed
+//= require apidoco/components/tabbed/headers/ad-headers
+//
 //= require apidoco/directives/jq_json_viewer
 //= require apidoco/controllers/documentations_controller

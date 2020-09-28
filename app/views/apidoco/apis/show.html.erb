@@ -60,46 +60,7 @@
                   <!-- Description -->
                   <p ng-if="x.description">{{x.description}}</p>
 
-                  <!-- Headers -->
-                  <div class="section-block card" ng-if="x.header">
-                    <div class="card-body">
-                      <h5 class="card-title">Headers</h5>
-                      <div ng-repeat="(key, value) in x.header" class="d-flex row mb-1">
-                        <div class="d-flex col-2">
-                          {{key}}
-                          <!-- TODO: Implement required/optional -->
-                        </div>
-                        <div class="col-1"><span class="badge badge-pill badge-light">string</span></div>
-                        <div class="ml-1 text-muted col-3">
-                          {{value}}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Parameters -->
-                  <div class="card section-block" ng-if="x.params && x.params.length > 0">
-                    <div class="card-body">
-                      <h5 class="card-title">Query Parameters</h5>
-                      <div ng-repeat="param in x.params" class="row mb-2">
-                        <div class="col-2 flex-column">
-                          <div>{{param.key}}</div>
-                          <div>
-                            <small class="text-danger font-weight-lighter text-uppercase" ng-if="param.required">REQUIRED</small>
-                            <small class="text-info font-weight-lighter text-uppercase" ng-if="!param.required">OPTIONAL</small>
-                          </div>
-                        </div>
-                        <div class="col-1"><span class="badge badge-pill badge-light">{{param.type}}</span></div>
-                        <div class="ml-1 text-muted col-3" ng-if="param.description">{{param.description}}</div>
-                        <div class="ml-1 text-muted col-5">
-                          {{param.notes}}
-                          <p ng-if="param.validations">
-                            <small ng-repeat="validation in param.validations">{{validation}}<br></small>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <ad-tabbed doc="x" index="$index"></ad-tabbed>
 
                   <div class="section-block" ng-if="x.notes">
                     <h3 class="block-title">Notes</h5>

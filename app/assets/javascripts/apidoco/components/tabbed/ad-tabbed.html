@@ -1,0 +1,47 @@
+<!-- Tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" data-toggle="tab" href="#request-{{$ctrl.index}}" role="tab" aria-controls="request-{{$ctrl.index}}" aria-selected="true">Request</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#response-{{$ctrl.index}}" role="tab" aria-controls="response-{{$ctrl.index}}" aria-selected="false">Response</a>
+  </li>
+</ul>
+
+
+<div class="tab-content">
+  <!-- Request -->
+  <div class="tab-pane fade show active" id="request-{{$ctrl.index}}" role="tabpanel" aria-labelledby="request-{{$ctrl.index}}">
+    <!-- Headers -->
+    <ad-headers headers="$ctrl.doc.header" ng-if="$ctrl.doc.header"></ad-headers>
+
+    <!-- Parameters -->
+    <div class="card section-block" ng-if="$ctrl.doc.params && $ctrl.doc.params.length > 0">
+      <div class="card-body">
+        <h5 class="card-title">Query Parameters</h5>
+        <div ng-repeat="param in $ctrl.doc.params" class="row mb-2">
+          <div class="col-2 flex-column">
+            <div>{{param.key}}</div>
+            <div>
+              <small class="text-danger font-weight-lighter text-uppercase" ng-if="param.required">REQUIRED</small>
+              <small class="text-info font-weight-lighter text-uppercase" ng-if="!param.required">OPTIONAL</small>
+            </div>
+          </div>
+          <div class="col-1"><span class="badge badge-pill badge-light">{{param.type}}</span></div>
+          <div class="ml-1 text-muted col-3" ng-if="param.description">{{param.description}}</div>
+          <div class="ml-1 text-muted col-5">
+            {{param.notes}}
+            <p ng-if="$ctrl.param.validations">
+              <small ng-repeat="validation in param.validations">{{validation}}<br></small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Response -->
+  <div class="tab-pane fade" id="response-{{$ctrl.index}}" role="tabpanel" aria-labelledby="response-{{$ctrl.index}}">
+    Response
+  </div>
+</div>
