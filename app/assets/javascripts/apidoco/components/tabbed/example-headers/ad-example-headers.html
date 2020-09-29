@@ -1,0 +1,10 @@
+<div class="section-block card">
+  <div class="card-body">
+    <h5 class="card-title">Headers <small class="text-muted">example</small></h5>
+    <div class="btn-group pull-right" role="group">
+      <button class="btn btn-default btn-sm" ng-click="viewRaw($ctrl.headers)">Raw</button>
+      <button class="btn btn-default btn-sm" ngclipboard data-clipboard-text="{{$ctrl.headers}}">Copy</button>
+    </div>
+    <div jq-json-viewer data="$ctrl.headers"></div>
+  </div>
+</div>

@@ -8,7 +8,6 @@
   </li>
 </ul>
 
-
 <div class="tab-content">
   <!-- Request -->
   <div class="tab-pane fade show active" id="request-{{$ctrl.index}}" role="tabpanel" aria-labelledby="request-{{$ctrl.index}}">
@@ -16,32 +15,43 @@
     <ad-headers headers="$ctrl.doc.header" ng-if="$ctrl.doc.header"></ad-headers>
 
     <!-- Parameters -->
-    <div class="card section-block" ng-if="$ctrl.doc.params && $ctrl.doc.params.length > 0">
-      <div class="card-body">
-        <h5 class="card-title">Query Parameters</h5>
-        <div ng-repeat="param in $ctrl.doc.params" class="row mb-2">
-          <div class="col-2 flex-column">
-            <div>{{param.key}}</div>
-            <div>
-              <small class="text-danger font-weight-lighter text-uppercase" ng-if="param.required">REQUIRED</small>
-              <small class="text-info font-weight-lighter text-uppercase" ng-if="!param.required">OPTIONAL</small>
-            </div>
-          </div>
-          <div class="col-1"><span class="badge badge-pill badge-light">{{param.type}}</span></div>
-          <div class="ml-1 text-muted col-3" ng-if="param.description">{{param.description}}</div>
-          <div class="ml-1 text-muted col-5">
-            {{param.notes}}
-            <p ng-if="$ctrl.param.validations">
-              <small ng-repeat="validation in param.validations">{{validation}}<br></small>
-            </p>
-          </div>
-        </div>
-      </div>
+    <ad-parameters params="$ctrl.doc.params" ng-if="$ctrl.doc.params && $ctrl.doc.params.length > 0"></ad-parameters>
+
+    <!-- Examples -->
+    <div
+      ng-if="$ctrl.doc.examples && $ctrl.doc.examples.length > 0"
+      ng-repeat="example in $ctrl.doc.examples">
+      <!-- Headers -->
+      <ad-example-headers
+        headers="example.request_headers"
+        ng-if="example.request_headers">
+      </ad-example-headers>
+
+      <!-- Body -->
+      <ad-example-body
+        body="example.request"
+        ng-if="example.request">
+      </ad-example-body>
     </div>
   </div>
 
   <!-- Response -->
   <div class="tab-pane fade" id="response-{{$ctrl.index}}" role="tabpanel" aria-labelledby="response-{{$ctrl.index}}">
-    Response
+    <!-- Examples -->
+    <div
+      ng-if="$ctrl.doc.examples && $ctrl.doc.examples.length > 0"
+      ng-repeat="example in $ctrl.doc.examples">
+      <!-- Headers -->
+      <ad-example-headers
+        headers="example.response_headers"
+        ng-if="example.response_headers">
+      </ad-example-headers>
+
+      <!-- Body -->
+      <ad-example-body
+        body="example.response"
+        ng-if="example.response">
+      </ad-example-body>
+    </div>
   </div>
 </div>
