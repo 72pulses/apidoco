@@ -1,9 +1,13 @@
 <div class="section-block card">
   <div class="card-body">
-    <h5 class="card-title">Body <small class="text-muted">example</small></h5>
-    <div class="btn-group pull-right" role="group">
-      <button class="btn btn-default btn-sm" ng-click="viewRaw($ctrl.body)">Raw</button>
-      <button class="btn btn-default btn-sm" ngclipboard data-clipboard-text="{{$ctrl.body}}">Copy</button>
+    <div class="d-flex">
+      <h5 class="card-title">Body <small class="text-muted">example</small></h5>
+      <button class="btn btn-light btn-sm ml-auto" type="button" ng-click="viewRaw($ctrl.body)">
+        <redirect-icon />
+      </button>
+      <button class="btn btn-light btn-sm" type="button" ngclipboard data-clipboard-text="{{$ctrl.body}}">
+        <copy-icon />
+      </button>
     </div>
     <div jq-json-viewer data="$ctrl.body"></div>
   </div>

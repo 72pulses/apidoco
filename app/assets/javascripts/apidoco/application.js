@@ -22,6 +22,7 @@
 //  Icons
 //= require apidoco/icons/linkIcon
 //= require apidoco/icons/copyIcon
+//= require apidoco/icons/redirectIcon
 //
 //= Components
 //= require apidoco/components/tabbed/ad-tabbed
