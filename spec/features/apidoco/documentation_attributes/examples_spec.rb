@@ -32,6 +32,9 @@ RSpec.feature 'Document Attributes', type: :feature do
       request.each do |key, value|
         expect(page).to have_text(format('"%s": "%s"', key, value))
       end
+
+      page.click_on('Response')
+
       response.each do |key, value|
         expect(page).to have_text(format('"%s": "%s"', key, value))
       end

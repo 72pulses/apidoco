@@ -1,0 +1,15 @@
+<div class="section-block card">
+  <div class="card-body">
+    <h5 class="card-title">Headers</h5>
+    <div ng-repeat="(key, value) in $ctrl.headers" class="d-flex row mb-1">
+      <div class="d-flex col-2">
+        {{key}}
+        <!-- TODO: Implement required/optional -->
+      </div>
+      <div class="col-1"><span class="badge badge-pill badge-light">string</span></div>
+      <div class="ml-1 text-muted col-3">
+        {{value}}
+      </div>
+    </div>
+  </div>
+</div>

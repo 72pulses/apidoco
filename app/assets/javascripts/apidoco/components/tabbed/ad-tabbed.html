@@ -1,0 +1,57 @@
+<!-- Tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" data-toggle="tab" href="#request-{{$ctrl.index}}" role="tab" aria-controls="request-{{$ctrl.index}}" aria-selected="true">Request</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#response-{{$ctrl.index}}" role="tab" aria-controls="response-{{$ctrl.index}}" aria-selected="false">Response</a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <!-- Request -->
+  <div class="tab-pane fade show active" id="request-{{$ctrl.index}}" role="tabpanel" aria-labelledby="request-{{$ctrl.index}}">
+    <!-- Headers -->
+    <ad-headers headers="$ctrl.doc.header" ng-if="$ctrl.doc.header"></ad-headers>
+
+    <!-- Parameters -->
+    <ad-parameters params="$ctrl.doc.params" ng-if="$ctrl.doc.params && $ctrl.doc.params.length > 0"></ad-parameters>
+
+    <!-- Examples -->
+    <div
+      ng-if="$ctrl.doc.examples && $ctrl.doc.examples.length > 0"
+      ng-repeat="example in $ctrl.doc.examples">
+      <!-- Headers -->
+      <ad-example-headers
+        headers="example.request_headers"
+        ng-if="example.request_headers">
+      </ad-example-headers>
+
+      <!-- Body -->
+      <ad-example-body
+        body="example.request"
+        ng-if="example.request">
+      </ad-example-body>
+    </div>
+  </div>
+
+  <!-- Response -->
+  <div class="tab-pane fade" id="response-{{$ctrl.index}}" role="tabpanel" aria-labelledby="response-{{$ctrl.index}}">
+    <!-- Examples -->
+    <div
+      ng-if="$ctrl.doc.examples && $ctrl.doc.examples.length > 0"
+      ng-repeat="example in $ctrl.doc.examples">
+      <!-- Headers -->
+      <ad-example-headers
+        headers="example.response_headers"
+        ng-if="example.response_headers">
+      </ad-example-headers>
+
+      <!-- Body -->
+      <ad-example-body
+        body="example.response"
+        ng-if="example.response">
+      </ad-example-body>
+    </div>
+  </div>
+</div>

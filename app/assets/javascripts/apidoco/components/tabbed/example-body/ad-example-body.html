@@ -1,0 +1,29 @@
+<hr style="margin-top: 0; margin-bottom: 0; border: 0;"> <!-- To fix the weird issue when runnuing the specs, The component was not not rendering without this hack -->
+
+<div class="section-block card">
+  <div class="card-body">
+    <div class="d-flex">
+      <h5 class="card-title">Body <small class="text-muted">example</small></h5>
+
+      <!-- Buttons -->
+      <!-- <button
+        class="btn btn-light btn-sm ml-auto"
+        type="button"
+        ng-click="viewRaw($ctrl.body)"
+        title="View Raw">
+        <redirect-icon />
+      </button> -->
+      <button
+        class="btn btn-light btn-sm ml-auto"
+        type="button"
+        ngclipboard
+        data-clipboard-text="{{$ctrl.body}}"
+        title="Copy to Clipboard">
+        <copy-icon />
+      </button>
+    </div>
+
+    <!-- Json viewer -->
+    <div jq-json-viewer data="$ctrl.body"></div>
+  </div>
+</div>

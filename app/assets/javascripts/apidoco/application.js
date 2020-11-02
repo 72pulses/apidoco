@@ -18,5 +18,18 @@
 //= require apidoco/clipboard.min
 //= require apidoco/directives/ngclipboard
 //= require apidoco/apidoco_app
+//
+//  Icons
+//= require apidoco/icons/linkIcon
+//= require apidoco/icons/copyIcon
+//= require apidoco/icons/redirectIcon
+//
+//= Components
+//= require apidoco/components/tabbed/ad-tabbed
+//= require apidoco/components/tabbed/headers/ad-headers
+//= require apidoco/components/tabbed/parameters/ad-parameters
+//= require apidoco/components/tabbed/example-headers/ad-example-headers
+//= require apidoco/components/tabbed/example-body/ad-example-body
+//
 //= require apidoco/directives/jq_json_viewer
 //= require apidoco/controllers/documentations_controller
