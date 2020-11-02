@@ -5,6 +5,8 @@ RSpec.feature 'Document Attributes', type: :feature do
     context 'when required is true' do
       it 'will list the documentation' do
         create_json = {
+          name: 'Create Currency',
+          end_point: '/currencies',
           published: true,
           params: [{
             key: "currency['name']",
@@ -16,9 +18,9 @@ RSpec.feature 'Document Attributes', type: :feature do
 
         visit '/apidoco'
         param = create_json[:params][0]
-        expect(page).to have_text("#{param[:key]}")
-        expect(page).to have_text("required")
-        expect(page).to have_text("#{param[:type]}")
+        expect(page).to have_text(param[:key])
+        expect(page).to have_text("REQUIRED")
+        expect(page).to have_text(param[:type].downcase)
       end
     end
 
@@ -36,9 +38,9 @@ RSpec.feature 'Document Attributes', type: :feature do
 
         visit '/apidoco'
         param = create_json[:params][0]
-        expect(page).to have_text("#{param[:key]}")
-        expect(page).to have_text("optional")
-        expect(page).to have_text("#{param[:type]}")
+        expect(page).to have_text(param[:key])
+        expect(page).to have_text("OPTIONAL")
+        expect(page).to have_text(param[:type].downcase)
       end
     end
   end

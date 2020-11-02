@@ -2,13 +2,26 @@
   <div class="card-body">
     <div class="d-flex">
       <h5 class="card-title">Body <small class="text-muted">example</small></h5>
-      <button class="btn btn-light btn-sm ml-auto" type="button" ng-click="viewRaw($ctrl.body)">
+
+      <!-- Buttons -->
+      <!-- <button
+        class="btn btn-light btn-sm ml-auto"
+        type="button"
+        ng-click="viewRaw($ctrl.body)"
+        title="View Raw">
         <redirect-icon />
-      </button>
-      <button class="btn btn-light btn-sm" type="button" ngclipboard data-clipboard-text="{{$ctrl.body}}">
+      </button> -->
+      <button
+        class="btn btn-light btn-sm ml-auto"
+        type="button"
+        ngclipboard
+        data-clipboard-text="{{$ctrl.body}}"
+        title="Copy to Clipboard">
         <copy-icon />
       </button>
     </div>
+
+    <!-- Json viewer -->
     <div jq-json-viewer data="$ctrl.body"></div>
   </div>
 </div>
