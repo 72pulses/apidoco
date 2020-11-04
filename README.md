@@ -5,7 +5,7 @@ Easy documentation of REST APIs - [Demo](https://apidoco-demo.herokuapp.com/docs
 
 ## Screenshots
 
-![screeshot 1](https://github.com/72pulses/apidoco/blob/master/images/1.jpg?raw=true)
+![screeshot 1](https://github.com/72pulses/apidoco/blob/master/images/1.png?raw=true)
 
 
 ## Installation
