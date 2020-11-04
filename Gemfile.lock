@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     apidoco (1.6.1)
-      angularjs-rails (~> 1.6, >= 1.6.8)
       rails (>= 5.0.0)
 
 GEM
@@ -51,7 +50,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    angularjs-rails (1.6.8)
     apparition (0.5.0)
       capybara (~> 3.13, < 4)
       websocket-driver (>= 0.6.5)
