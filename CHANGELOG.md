@@ -18,6 +18,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## [1.6.2] - 2020-11-18
+
+### Added
+- [UI V2](https://github.com/72pulses/apidoco/pull/99)
+
+### Changed
+- [upgrading bootsrap to 4.5](https://github.com/72pulses/apidoco/pull/97)
+- [Angularjs upgrade - 1.8.x](https://github.com/72pulses/apidoco/pull/100)
+
 ## [1.6.1] - 2020-08-19
 
 ### Added
