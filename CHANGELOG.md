@@ -18,6 +18,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## [1.6.3] - 2021-06-02
+
+### Changed
+
+- [Bump mimemagic to 0.3.10](https://github.com/72pulses/apidoco/pull/109)
+
 ## [1.6.2] - 2020-11-18
 
 ### Added
