@@ -37,6 +37,11 @@
 
   <!-- Response -->
   <div class="tab-pane fade" id="response-{{$ctrl.index}}" role="tabpanel" aria-labelledby="response-{{$ctrl.index}}">
+    <!-- TODO: Rename to body properties -->
+    <!-- TODO: Remove the optional/required text -->
+    <!-- Body Properties -->
+    <ad-parameters params="$ctrl.doc.response_properties" ng-if="$ctrl.doc.response_properties && $ctrl.doc.response_properties.length > 0"></ad-parameters>
+
     <!-- Examples -->
     <div
       ng-if="$ctrl.doc.examples && $ctrl.doc.examples.length > 0"
