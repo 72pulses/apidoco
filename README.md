@@ -129,6 +129,17 @@ will create the following files with sample content
     "Content-Type": "application/json"
   },
 
+  "response_properties": [
+    {
+      "key": "success",
+      "type": "Boolean"
+    }, {
+      "key": "message",
+      "type": "String",
+      "description": "It can be any generic message. Examples:- Successfully created, Missing properties - title, content"
+    }
+  ],
+
   "examples": [
     {
       "request_headers": {
@@ -174,6 +185,17 @@ will create the following files with sample content
     "Authentication": "Token token=<token>",
     "Content-Type": "application/json"
   },
+
+  "response_properties": [
+    {
+      "key": "success",
+      "type": "Boolean"
+    }, {
+      "key": "message",
+      "type": "String",
+      "description": "It can be any generic message. Examples:- Successfully created, Missing properties - title, content"
+    }
+  ],
 
   "examples": [
     {
@@ -251,6 +273,23 @@ will create the following files with sample content
    "Content-type": 'application/json'
   }
 ```
+
+### # response_properties
+ - Describing the properties in the response body
+ - Optional
+ - Usage:
+ ```
+"response_properties": [
+    {
+      "key": "success",
+      "type": "Boolean"
+    }, {
+      "key": "message",
+      "type": "String",
+      "description": "It can be any generic message. Examples:- Successfully created."
+    }
+  ],
+ ```
 
 ### # examples
  - Array of sample requests, responses and their headers

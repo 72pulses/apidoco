@@ -14,8 +14,12 @@
     <!-- Headers -->
     <ad-headers headers="$ctrl.doc.header" ng-if="$ctrl.doc.header"></ad-headers>
 
-    <!-- Parameters -->
-    <ad-parameters params="$ctrl.doc.params" ng-if="$ctrl.doc.params && $ctrl.doc.params.length > 0"></ad-parameters>
+    <!-- Body Properties -->
+    <ad-body-properties
+      properties="$ctrl.doc.params"
+      ng-if="$ctrl.doc.params && $ctrl.doc.params.length > 0"
+      show-required="true">
+    </ad-body-properties>
 
     <!-- Examples -->
     <div
@@ -37,6 +41,12 @@
 
   <!-- Response -->
   <div class="tab-pane fade" id="response-{{$ctrl.index}}" role="tabpanel" aria-labelledby="response-{{$ctrl.index}}">
+    <!-- Body Properties -->
+    <ad-body-properties
+      properties="$ctrl.doc.response_properties"
+      ng-if="$ctrl.doc.response_properties && $ctrl.doc.response_properties.length > 0">
+    </ad-body-properties>
+
     <!-- Examples -->
     <div
       ng-if="$ctrl.doc.examples && $ctrl.doc.examples.length > 0"
