@@ -1,0 +1,24 @@
+<hr style="margin-top: 0; margin-bottom: 0; border: 0;"> <!-- To fix the weird issue when runnuing the specs, The component was not rendering without this hack -->
+
+<div class="card section-block">
+  <div class="card-body">
+    <h5 class="card-title">Body Properties</h5>
+    <div ng-repeat="property in $ctrl.properties" class="row mb-2">
+      <div class="col-2 flex-column">
+        <div>{{property.key}}</div>
+        <div ng-if="$ctrl.showRequired">
+          <small class="text-danger font-weight-lighter text-uppercase" ng-if="property.required">REQUIRED</small>
+          <small class="text-info font-weight-lighter text-uppercase" ng-if="!property.required">OPTIONAL</small>
+        </div>
+      </div>
+      <div class="col-1 text-lowercase"><span class="badge badge-pill badge-light">{{property.type}}</span></div>
+      <div class="ml-1 text-muted col-4" ng-if="property.description">{{property.description}}</div>
+      <div class="ml-1 text-muted col-4">
+        {{property.notes}}
+        <p ng-if="property.validations">
+          <small ng-repeat="validation in property.validations">{{validation}}<br></small>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

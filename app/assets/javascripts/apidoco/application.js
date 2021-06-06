@@ -27,7 +27,7 @@
 //= Components
 //= require apidoco/components/tabbed/ad-tabbed
 //= require apidoco/components/tabbed/headers/ad-headers
-//= require apidoco/components/tabbed/parameters/ad-parameters
+//= require apidoco/components/tabbed/body-properties/ad-body-properties
 //= require apidoco/components/tabbed/example-headers/ad-example-headers
 //= require apidoco/components/tabbed/example-body/ad-example-body
 //
