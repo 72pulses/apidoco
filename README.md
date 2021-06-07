@@ -1,7 +1,7 @@
 [![Gem Version](https://badge.fury.io/rb/apidoco.svg)](https://badge.fury.io/rb/apidoco)
 
 # Apidoco - Ruby on Rails API documentation tool
-Easy documentation of REST APIs - [Demo](https://demo.apidoco.com/docs/).
+Easy documentation of REST APIs - [Demo](http://demo.apidoco.com/docs/).
 
 ## Screenshots
 
