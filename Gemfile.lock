@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    apidoco (1.6.3)
+    apidoco (1.6.4)
       rails (>= 5.0.0)
 
 GEM

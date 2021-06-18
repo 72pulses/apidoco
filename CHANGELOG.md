@@ -18,6 +18,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## [1.6.4] - 2021-06-18
+
+## Added
+- [Response Body Properties](https://github.com/72pulses/apidoco/pull/118)
+
 ## [1.6.3] - 2021-06-02
 
 ### Changed
